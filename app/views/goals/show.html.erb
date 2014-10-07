@@ -1,0 +1,12 @@
+<h1><%= @goal.goal %></h1>
+<ul>
+  <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%></li><br>
+  <li>Duration: <%= @goal.duration %> minutes </li><br>
+  <li><% if @goal.completed == false %> Ongoing
+      <% else %> Completed <% end %></li><br>
+  <li>Objective <br>
+      <%= @goal.objective %></li><br>
+</ul>
+<%= link_to "Revise this Goal", edit_goal_path(@goal) %>
+<%= link_to "Add another Goal", new_goal_path %>
+<%= link_to "View all my Goals", goals_path %>
