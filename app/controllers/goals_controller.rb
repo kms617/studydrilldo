@@ -20,7 +20,9 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.find(params[:id])
+    @goal = Goal.includes(:tasks).find(params[:id])
+    @task = Task.new
+    @methodologies = Methodology.all
   end
 
   def edit

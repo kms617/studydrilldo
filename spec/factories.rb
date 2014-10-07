@@ -16,9 +16,9 @@ FactoryGirl.define do
 
   factory :task do
     #user
-    #goal
+    goal
     focus "do drills online"
-    type_id 1
+    methodology_id 1
     completed false
     duration 20
     description "did drills on tuts plus"

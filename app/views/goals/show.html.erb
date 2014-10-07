@@ -9,4 +9,65 @@
 </ul>
 <%= link_to "Revise this Goal", edit_goal_path(@goal) %>
 <%= link_to "Add another Goal", new_goal_path %>
-<%= link_to "View all my Goals", goals_path %>
+
+<% if !@tasks.empty? %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= link_to task.name, task_path(task) %> | <%= task.methodology.name %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
+      </li>
+      <% end %>
+  </ul>
+<% else %>
+  <p>Get started towards this goal by adding a task. </p>
+<% end %>
+
+<h2>Add a Task towards this Goal</h2>
+<div class="form">
+<%= form_for [@goal, @task] do |f| %>
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@task.errors.count, "error") %> prohibited this task from being submitted:</h3>
+
+    <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  <%= f.label :focus %>
+  <%= f.text_field :focus %>
+</p>
+
+<p>
+  <div class="field">
+    <%= f.label :methodology %><br>
+    <%= f.collection_select(:methodology_id, @methodologies, :id, :name, :include_blank => "Select a methodology...") %>
+  </div>
+</p>
+
+<p>
+  <%= f.label :duration %>
+  <%= f.text_field :duration %> minutes
+</p>
+
+<p>
+  <%= f.label :completed, "Finished?" %>
+  <%= f.radio_button :completed, true %><label for="completed_true">yes</label>
+  <%= f.radio_button :completed, false %><label for="completed_false">not yet</label>
+</p>
+
+<p>
+  <%= f.label :description%><br>
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.submit class: 'button radius' %>
+</p>
+<% end %>
+</div>
+
