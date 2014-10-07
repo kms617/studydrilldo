@@ -23,7 +23,8 @@ ER Diagram (10/6)
     +---------------------------+                 +----------------------------+      
     |   :name, string, NF       |                /|   :goal_id, integer, NF    |      
     |                           +-----------------+   :focus, string, NF       |      
-    |                           |                \|   :type_id, integer, NF    |      
+    |                           |                \|   :methodology_id, integer,|     
+    |                           |                 |      NF                    |
     |                           |                 |   :completed, boolean, NF  |      
     |                           |                 |   :duration, integer, NF   |     
     |                           |                 |   :description, text       | 

@@ -1,4 +1,4 @@
-class TasksController < ActiveRecord::Base
+class TasksController < ApplicationController
   def index
     @tasks = Task.all.order(created_at: :desc)
   end
@@ -13,21 +13,23 @@ class TasksController < ActiveRecord::Base
 
   def create
     @task = Task.new(task_params)
-    @methodologies = Methodlogy.all
+    @methodologies = Methodology.all
+    @goal = Goal.find(params[:goal_id])
+    @task.goal = @goal
 
     if @task.save
-      flash[:notice] = "Task successfully added."
-      redirect_to goal_path(@task.goal)
+      flash[:notice] = "Step successfully taken!"
+      redirect_to goal_path(@task.goal_id)
     else
       flash[:alert] = "There was a problem, please try again."
-      render goal_path(@task.goal)
+      render 'goals/show'
     end
   end
 
   private
 
   def task_params
-    params.require(:tasks).permit(:goal_id,
+    params.require(:task).permit(:goal_id,
                                   :focus,
                                   :methodology_id,
                                   :completed,

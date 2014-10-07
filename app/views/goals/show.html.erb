@@ -1,3 +1,4 @@
+<p>my goal:</p>
 <h1><%= @goal.goal %></h1>
 <ul>
   <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%></li><br>
@@ -10,11 +11,12 @@
 <%= link_to "Revise this Goal", edit_goal_path(@goal) %>
 <%= link_to "Add another Goal", new_goal_path %>
 
-<% if !@tasks.empty? %>
+<% if !@goal.tasks.empty? %>
+  <h2>Steps towards your goal</h2>
   <ul>
-    <% @tasks.each do |task| %>
+    <% @goal.tasks.each do |task| %>
       <li>
-        <%= link_to task.name, task_path(task) %> | <%= task.methodology.name %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
+        <%= link_to task.focus, task_path(task) %> | <%= task.methodology_id %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
       </li>
       <% end %>
   </ul>
@@ -22,7 +24,7 @@
   <p>Get started towards this goal by adding a task. </p>
 <% end %>
 
-<h2>Add a Task towards this Goal</h2>
+<h2>Add a Step towards my Goal</h2>
 <div class="form">
 <%= form_for [@goal, @task] do |f| %>
 <% if @task.errors.any? %>
@@ -36,7 +38,7 @@
     </ul>
   </div>
 <% end %>
-
+<%= f.hidden_field :goal_id, { :value => @goal.id } %>
 <p>
   <%= f.label :focus %>
   <%= f.text_field :focus %>

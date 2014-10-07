@@ -1,4 +1,5 @@
 class Goal < ActiveRecord::Base
+  has_many :tasks
 
   validates :goal, :duration, presence: true
   validates :goal, length: { maximum: 100 }

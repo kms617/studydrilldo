@@ -22,7 +22,9 @@ FactoryGirl.define do
     completed false
     duration 20
     description "did drills on tuts plus"
+  end
 
-    sequence(:review) { |n| "Cute cat #{n}" }
+  factory :methodology do
+    name "drill"
   end
 end

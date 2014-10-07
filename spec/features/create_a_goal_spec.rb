@@ -18,6 +18,9 @@ feature 'user submits a new goal' do
     click_button "Create Goal"
 
     expect(page).to have_content("Your goal has successfully been set!")
+    expect(page).to have_content(goal.goal)
+    expect(page).to have_content(goal.duration)
+    expect(page).to have_content(goal.objective)
 
   end
 
@@ -48,19 +51,19 @@ feature 'user submits a new goal' do
     visit 'goals/new'
 
     fill_in "Goal", with: "As late as the 1960s many people perceived computer
-    programming as a natural career choice for savvy young women. Even the
-    trend-spotters at Cosmopolitan Magazine urged their fashionable female readership
-    to consider careers in programming."
+                        programming as a natural career choice for savvy young women. Even the
+                        trend-spotters at Cosmopolitan Magazine urged their fashionable female readership
+                        to consider careers in programming."
     fill_in "Duration", with: "twenty"
     choose 'goal_completed_false'
     fill_in "Objective", with: "In an article titled “The Computer Girls,”
-    the magazine described the field as offering better job opportunities for women
-    than many other professional careers. As computer scientist Dr. Grace Hopper
-    told a reporter, programming was “just like planning a dinner. You have to plan
-    ahead and schedule everything so that it’s ready when you need it…. Women are
-    ‘naturals’ at computer programming.” James Adams, the director of education for
-    the Association for Computing Machinery, agreed: “I don’t know of any other field,
-    outside of teaching, where there’s as much opportunity for a woman.”"
+                                the magazine described the field as offering better job opportunities for women
+                                than many other professional careers. As computer scientist Dr. Grace Hopper
+                                told a reporter, programming was “just like planning a dinner. You have to plan
+                                ahead and schedule everything so that it’s ready when you need it…. Women are
+                                ‘naturals’ at computer programming.” James Adams, the director of education for
+                                the Association for Computing Machinery, agreed: “I don’t know of any other field,
+                                outside of teaching, where there’s as much opportunity for a woman.”"
     click_button "Create Goal"
 
     expect(page).to have_content("There was a problem, please try again.")
