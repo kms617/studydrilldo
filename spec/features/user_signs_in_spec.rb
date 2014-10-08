@@ -36,4 +36,16 @@ feature 'user signs in', %Q{
 
     expect(page).to have_content ("Invalid email address or password.")
   end
+
+  scenario 'existing email with the wrong password is denied access' do
+    user = FactoryGirl.create(:user)
+    visit root_path
+    click_link "Login"
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "foobar"
+    click_button "Login"
+
+    expect(page).to have_content ("Invalid email or password.")
+  end
 end
