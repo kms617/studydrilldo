@@ -23,7 +23,8 @@ ER Diagram (10/6)
     +---------------------------+                 +----------------------------+      
     |   :name, string, NF       |                /|   :goal_id, integer, NF    |      
     |                           +-----------------+   :focus, string, NF       |      
-    |                           |                \|   :type_id, integer, NF    |      
+    |                           |                \|   :methodology_id, integer,|     
+    |                           |                 |      NF                    |
     |                           |                 |   :completed, boolean, NF  |      
     |                           |                 |   :duration, integer, NF   |     
     |                           |                 |   :description, text       | 
@@ -71,7 +72,7 @@ B.  As a learner, I want to keep track of the tasks I've done to reach my goal.
             prompting me to provide correct information and alerting me to my errors.
         1b. If there are errors in my form, I want to receive an error message
             detailing my mistakes so that I can correct them.
-      2.  After I submit my fast, I want to see a summary of the details for it.
+      2.  After I submit my task, I want to see a summary of the details for it.
       3.  I also want to view a list of all the tasks in a session, with the most
           recent first.
       4.  I want to be able to revise a task if I enter the wrong information.
