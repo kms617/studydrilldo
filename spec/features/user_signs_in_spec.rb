@@ -23,6 +23,7 @@ feature 'user signs in', %Q{
     click_button "Login"
 
     expect(page).to have_content ("Signed in successfully.")
+    expect(page).to have_content ("Sign Out")
     expect(page).to_not have_content ("Login")
   end
 
