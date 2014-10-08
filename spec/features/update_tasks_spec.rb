@@ -4,14 +4,14 @@ feature 'user updates a task' do
   before :each do
     @goal = FactoryGirl.create(:goal)
     @task = FactoryGirl.create(:task)
-    @methodology = Factory.Girl.create(:methodology)
+    @methodology = FactoryGirl.create(:methodology)
   end
 
   scenario 'user updates a task successfully' do
     # I want to be able to revise a task if I reevaluate my priorities or
     #discover something new. Or if I make a mistake.
     visit edit_task_path(@task)
-
+    select @methodology.name, :from => "task_methodology_id"
     fill_in "Description", with: "Learn lots of Ruby"
     click_button "Update Task"
 
@@ -26,7 +26,7 @@ feature 'user updates a task' do
     #discover something new. Or if I make a mistake.
     visit edit_task_path(@task)
 
-    fill_in "Goal", with: ""
+    fill_in "Focus", with: ""
     fill_in "Duration", with: ""
     fill_in "Description", with: ""
     click_button "Update Task"
@@ -40,7 +40,7 @@ feature 'user updates a task' do
   scenario 'user deletes a task' do
     #If I don't do it afterall, I want to be able to remove
     #a task from my learning portfolio.
-    visit edit_task_path(@task)
+    visit task_path(@task)
 
     click_link "Delete"
 

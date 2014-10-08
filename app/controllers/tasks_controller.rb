@@ -28,6 +28,34 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+
+    if @task.update(task_params)
+      flash[:notice] = "Task Updated"
+      redirect_to task_path(@task)
+    else
+      flash[:notice] = "There was a problem, please try again."
+      render :edit
+    end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+
+    if @task.destroy
+      flash[:notice] = "Task Deleted"
+      redirect_to goals_path
+    else
+      flash[:alert] = "There was a problem, please try again."
+      render :edit
+    end
+  end
+
   private
 
   def task_params
@@ -40,6 +68,6 @@ class TasksController < ApplicationController
   end
 
   def prepare_methodologies
-    @methodlogies = Methodology.all
+    @methodologies = Methodology.all
   end
 end

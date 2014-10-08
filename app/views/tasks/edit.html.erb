@@ -1,0 +1,46 @@
+<div class="form">
+<%= form_for @task, url: task_path do |f| %>
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@task.errors.count, "error") %> prohibited this task from being submitted:</h3>
+
+    <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <%= f.label :focus %>
+  <%= f.text_field :focus %>
+</p>
+
+<p>
+  <div class="field">
+    <%= f.label :methodology %><br>
+    <%= f.collection_select(:methodology_id, @methodologies, :id, :name, :include_blank => "Select a methodology...") %>
+  </div>
+</p>
+
+<p>
+  <%= f.label :duration %>
+  <%= f.text_field :duration %> minutes
+</p>
+
+<p>
+  <%= f.label :completed, "Finished?" %>
+  <%= f.radio_button :completed, true %><label for="completed_true">yes</label>
+  <%= f.radio_button :completed, false %><label for="completed_false">not yet</label>
+</p>
+
+<p>
+  <%= f.label :description%><br>
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.submit class: 'button radius' %>
+</p>
+<% end %>
+</div>
+<p><%= link_to 'Back', goal_path(@task.goal_id) %></p>
