@@ -15,16 +15,15 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @methodologies = Methodology.all
     @goal = Goal.find(params[:goal_id])
     @task.goal = @goal
 
     if @task.save
       flash[:notice] = "Step successfully taken!"
-      redirect_to goal_path(@task.goal_id)
+      redirect_to goal_path(@task.goal)
     else
       flash[:alert] = "There was a problem, please try again."
-      render 'goals/show'
+      render :new
     end
   end
 
@@ -59,12 +58,16 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:goal_id,
-                                  :focus,
-                                  :methodology_id,
-                                  :completed,
-                                  :duration,
-                                  :description)
+    params.require(:task).permit(
+      :goal_id,
+      :focus,
+      :methodology_id,
+      :completed,
+      :duration,
+      :description,
+      :action,
+      :action_url
+    )
   end
 
   def prepare_methodologies

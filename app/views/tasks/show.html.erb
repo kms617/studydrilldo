@@ -1,7 +1,8 @@
 <%= @task.focus %>
+<% if @task.action %><%= @task.action %><% else %><%= @task.action_url %><% end %>
 <ul>
   <li>
-    Goal: <%= @task.goal.goal %>
+    Goal: <%= @task.goal.name %>
   </li>
   <li>
     Taken on: <%= @task.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> | Duration <%= @task.duration %> minutes | <% if @task.completed == false %>Ongoing

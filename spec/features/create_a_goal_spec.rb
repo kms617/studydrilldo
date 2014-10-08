@@ -7,18 +7,18 @@ feature 'user submits a new goal' do
     # complete it in,the focus of the goal and whether or not I completed
     # it. I may optionally submit an objective for the goal.
 
-    goal = FactoryGirl.create(:goal)
+    goal = FactoryGirl.build(:goal)
 
-    visit 'goals/new'
+    visit new_goal_path
 
-    fill_in "Goal", with: goal.goal
+    fill_in "Goal", with: goal.name
     choose 'goal_completed_false'
     fill_in "Duration", with: goal.duration
     fill_in "Objective", with: goal.objective
     click_button "Create Goal"
 
     expect(page).to have_content("Your goal has successfully been set!")
-    expect(page).to have_content(goal.goal)
+    expect(page).to have_content(goal.name)
     expect(page).to have_content(goal.duration)
     expect(page).to have_content(goal.objective)
 
@@ -29,12 +29,12 @@ feature 'user submits a new goal' do
     # I want to receive an error message prompting me
     # to provide the correct information and alerting me to my errors.
 
-    visit 'goals/new'
+    visit new_goal_path
 
     click_button "Create Goal"
 
     expect(page).to have_content("There was a problem, please try again.")
-    expect(page).to have_content("Goal can't be blank")
+    expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Duration can't be blank")
     expect(page).to have_content("Duration is not a number")
     expect(page).to have_content("Completed is not included in the list")
@@ -48,7 +48,7 @@ feature 'user submits a new goal' do
 
     goal = FactoryGirl.create(:goal)
 
-    visit 'goals/new'
+    visit new_goal_path
 
     fill_in "Goal", with: "As late as the 1960s many people perceived computer
                         programming as a natural career choice for savvy young women. Even the
@@ -67,7 +67,7 @@ feature 'user submits a new goal' do
     click_button "Create Goal"
 
     expect(page).to have_content("There was a problem, please try again.")
-    expect(page).to have_content("Goal is too long")
+    expect(page).to have_content("Name is too long")
     expect(page).to have_content("Objective is too long")
     expect(page).to have_content("Duration is not a number")
   end

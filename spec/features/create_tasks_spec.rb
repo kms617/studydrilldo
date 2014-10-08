@@ -14,16 +14,15 @@ feature 'user submits a new step' do
     #the focus of the step, if it's completed or planned, its
     #duration, and the appropriate methodology.
     #I can optionally include a description of the task.
-    task = FactoryGirl.create(:task)
-    visit goal_path(@goal)
-
+    task = FactoryGirl.build(:task)
+    visit new_goal_task_path(@goal)
     fill_in "Focus", with: task.focus
     fill_in "Duration", with: task.duration
+    fill_in "task_action_url", with: task.action_url
     fill_in "Description", with: task.description
     choose 'task_completed_false'
     select @methodology.name, :from => "task_methodology_id"
     click_button "Create Task"
-
     expect(page).to have_content("Step successfully taken!")
     expect(page).to have_content(task.focus)
   end
@@ -33,7 +32,7 @@ feature 'user submits a new step' do
     #error message prompting me to provide correct information and
     #alerting me to my errors.
 
-    visit goal_path(@goal)
+    visit new_goal_task_path(@goal)
 
     click_button "Create Task"
 
@@ -49,7 +48,7 @@ feature 'user submits a new step' do
     #If there are errors in my form, I want to receive an
     #error message detailing my mistakes so that I can correct them.
 
-    visit goal_path(@goal)
+    visit new_goal_task_path(@goal)
 
     fill_in "Focus", with: "As late as the 1960s many people perceived computer
                             programming as a natural career choice for savvy young women. Even the
@@ -82,5 +81,4 @@ feature 'user submits a new step' do
     expect(page).to have_content(task.duration)
     expect(page).to have_content(task.description)
   end
-
 end

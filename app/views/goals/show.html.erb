@@ -1,5 +1,6 @@
 <p>my goal:</p>
-<h1><%= @goal.goal %></h1>
+<h1><%= @goal.name %></h1>
+<p><%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
 <ul>
   <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%></li><br>
   <li>Duration: <%= @goal.duration %> minutes </li><br>
@@ -8,11 +9,9 @@
   <li>Objective <br>
       <%= @goal.objective %></li><br>
 </ul>
-<%= link_to "Revise this Goal", edit_goal_path(@goal) %>
-<%= link_to "Add another Goal", new_goal_path %>
 
 <% if !@goal.tasks.empty? %>
-  <h2>Steps towards your goal</h2>
+  <h2>Steps towards your goal</h2><p><%= link_to "Take Steps", new_goal_task_path(@goal) %></p>
   <ul>
     <% @goal.tasks.each do |task| %>
       <li>
@@ -21,55 +20,5 @@
       <% end %>
   </ul>
 <% else %>
-  <p>Get started towards this goal by adding a task. </p>
+  <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
 <% end %>
-
-<h2>Add a Step towards my Goal</h2>
-<div class="form">
-<%= form_for [@goal, @task] do |f| %>
-<% if @task.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= pluralize(@task.errors.count, "error") %> prohibited this task from being submitted:</h3>
-
-    <ul>
-    <% @task.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= f.hidden_field :goal_id, { :value => @goal.id } %>
-<p>
-  <%= f.label :focus %>
-  <%= f.text_field :focus %>
-</p>
-
-<p>
-  <div class="field">
-    <%= f.label :methodology %><br>
-    <%= f.collection_select(:methodology_id, @methodologies, :id, :name, :include_blank => "Select a methodology...") %>
-  </div>
-</p>
-
-<p>
-  <%= f.label :duration %>
-  <%= f.text_field :duration %> minutes
-</p>
-
-<p>
-  <%= f.label :completed, "Finished?" %>
-  <%= f.radio_button :completed, true %><label for="completed_true">yes</label>
-  <%= f.radio_button :completed, false %><label for="completed_false">not yet</label>
-</p>
-
-<p>
-  <%= f.label :description%><br>
-  <%= f.text_area :description %>
-</p>
-
-<p>
-  <%= f.submit class: 'button radius' %>
-</p>
-<% end %>
-</div>
-

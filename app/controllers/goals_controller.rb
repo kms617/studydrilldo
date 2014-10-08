@@ -22,7 +22,6 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.includes(:tasks).find(params[:id])
     @task = Task.new
-    @methodologies = Methodology.all
   end
 
   def edit
@@ -56,6 +55,6 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:goal, :duration, :completed, :objective)
+    params.require(:goal).permit(:name, :duration, :completed, :objective)
   end
 end
