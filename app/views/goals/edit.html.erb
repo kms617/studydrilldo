@@ -1,6 +1,42 @@
 <h1>Revise A Goal</h1>
 
-<%= render 'form' %>
+<%= form_for @goal do |f| %>
+  <% if @goal.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being updated:</h2>
+    <ul>
+      <% @goal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+<div class="form">
+  <p>
+  <%= f.label :goal, "Goal" %>
+  <%= f.text_field :goal %>
+</p>
 
-<p><%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
+<p>
+  <%= f.label :duration %>
+  <%= f.text_field :duration %> minutes
+</p>
+
+<p>
+  <%= f.label :completed, "Time up?" %>
+  <%= f.radio_button :completed, true %><label for="completed_true">yes</label>
+  <%= f.radio_button :completed, false %><label for="completed_false">not yet</label>
+</p>
+
+<p>
+  <%= f.label :objective%><br>
+  <%= f.text_area :objective %>
+</p>
+
+<p>
+  <%= f.submit class: 'button radius' %>
+</p>
+<% end %>
+</div>
+<p>or <%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
 <p><%= link_to 'Back to Goal', goal_path(@goal) %></p>

@@ -7,23 +7,22 @@ FactoryGirl.define do
   # end
 
   factory :goal do
-    sequence(:name) { |n| "Learn Ruby #{n}" }
+    #user
+    sequence(:goal) { |n| "Learn to Use FactoryGirl #{n}" }
     duration 140
     completed true
-    objective "use inheritance wisely"
+    objective "generate data for tests in rspec using FactoryGirl"
   end
 
   factory :task do
-    goal
-    focus "Inheritance Drills"
-    methodology
+    #user
+    #goal
+    focus "do drills online"
+    type_id 1
     completed false
     duration 20
-    description "did drills on Ruby Monk, found them to be useful"
-    action_url "https://www.rubymonk.com"
-  end
+    description "did drills on tuts plus"
 
-  factory :methodology do
-    sequence(:name) { |n| "Methodology.types.sample ##{n}" }
+    sequence(:review) { |n| "Cute cat #{n}" }
   end
 end

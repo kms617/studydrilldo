@@ -4,12 +4,6 @@ Rails.application.routes.draw do
 
   resources :goals, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
-  resources :goals do
-    resources :tasks, only: [:index, :create, :new, :show, :edit, :update, :destroy]
-  end
-
-  resources :tasks, only: [:index, :create, :new, :show, :edit, :update, :destroy]
-end
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -55,3 +49,4 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+end

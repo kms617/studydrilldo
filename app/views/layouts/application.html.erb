@@ -1,64 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StuDDo</title>
+  <title>Toy</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
+<%= flash[:notice] %>
 
-<!-- <div class="show-for-medium-down tiny-nav">
-
-  <h1>StuDDo</h1>
-
-    <ul class="center">
-        <li>
-          <%= link_to 'MyGoals', goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Set a Goal', new_goal_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Take Steps', goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'About', about_index_path, class: 'button radius' %>
-        </li>
-    </ul>
-</div>!-->
-
-<div class="container">
-  <div class="show-for-large-up nav">
-
-    <%= link_to "Home", root_path %>
-
-    <ul class="right">
-        <li>
-          <%= link_to 'MyGoals', goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Set a Goal', new_goal_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Take Steps', goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'About', about_index_path, class: 'button radius' %>
-        </li>
-    </ul>
-  </div>
-</div>
-
-<div class="container">
-  <% if !notice.nil? %><p class="alert-box radius success"><%= notice %></p><% end %>
-  <% if !alert.nil? %><p class="alert-box radius warning"><%= alert %></p><% end %>
-</div>
-
-<div class="container">
-  <%= yield %>
-</div>
+<%= yield %>
 
 </body>
 </html>
