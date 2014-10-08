@@ -1,4 +1,4 @@
-<h1>Set a Goal</h1>
+<h1>Submit a Goal</h1>
 
 <div class="form">
 <%= form_for @goal do |f| %>
@@ -15,8 +15,8 @@
 <% end %>
 
 <p>
-  <%= f.label :name, "Goal" %>
-  <%= f.text_field :name %>
+  <%= f.label :goal %>
+  <%= f.text_field :goal %>
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 </p>
 
 <p>
-  <%= f.label :completed, "Finished?" %>
+  <%= f.label :completed, "Time up?" %>
   <%= f.radio_button :completed, true %><label for="completed_true">yes</label>
   <%= f.radio_button :completed, false %><label for="completed_false">not yet</label>
 </p>

@@ -14,7 +14,7 @@ feature 'user updates a goal' do
     click_button "Update Goal"
 
     expect(page).to have_content("Goal Updated")
-    expect(page).to have_content(@goal.name)
+    expect(page).to have_content(@goal.goal)
     expect(page).to have_content(@goal.duration)
     expect(page).to have_content("Learn lots of Ruby")
   end
@@ -30,7 +30,7 @@ feature 'user updates a goal' do
     click_button "Update Goal"
 
     expect(page).to have_content("There was a problem, please try again.")
-    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Goal can't be blank")
     expect(page).to have_content("Duration can't be blank")
     expect(page).to have_content("Duration is not a number")
   end
