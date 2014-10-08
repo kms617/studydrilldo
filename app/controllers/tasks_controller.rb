@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_filter :prepare_methodologies
+
   def index
     @tasks = Task.all.order(created_at: :desc)
   end
@@ -35,5 +37,9 @@ class TasksController < ApplicationController
                                   :completed,
                                   :duration,
                                   :description)
+  end
+
+  def prepare_methodologies
+    @methodlogies = Methodology.all
   end
 end

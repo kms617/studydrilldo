@@ -73,4 +73,14 @@ feature 'user submits a new step' do
     expect(page).to have_content("Description is too long")
     expect(page).to have_content("Duration is not a number")
   end
+
+  scenario 'user can view the details for a task' do
+    task = FactoryGirl.create(:task)
+    visit task_path(task)
+
+    expect(page).to have_content(task.focus)
+    expect(page).to have_content(task.duration)
+    expect(page).to have_content(task.description)
+  end
+
 end

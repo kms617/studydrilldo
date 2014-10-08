@@ -1,0 +1,18 @@
+<%= @task.focus %>
+<ul>
+  <li>
+    Goal: <%= @task.goal.goal %>
+  </li>
+  <li>
+    Taken on: <%= @task.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> | Duration <%= @task.duration %> minutes | <% if @task.completed == false %>Ongoing
+      <% else %>Completed<% end %>
+  </li>
+  <li>
+    <%= @task.methodology_id %>
+  </li>
+  <li>
+    Description:<br><%= @task.description %>
+  </li>
+</ul>
+<%= link_to "Back to the Goal", goal_path(@task.goal_id) %>
+<!-- <%= link_to "Revise", edit_task_path(@task) %>!-->
