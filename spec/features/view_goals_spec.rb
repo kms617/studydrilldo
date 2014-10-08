@@ -10,7 +10,7 @@ feature 'user views her goals' do
 
     visit goal_path(goal)
 
-    expect(page).to have_content(goal.goal)
+    expect(page).to have_content(goal.name)
     expect(page).to have_content(goal.duration)
     expect(page).to have_content(goal.objective)
 
@@ -27,7 +27,7 @@ feature 'user views her goals' do
     visit goals_path
 
     goals.each do |goal|
-      expect(page).to have_content(goal.goal)
+      expect(page).to have_content(goal.name)
     end
   end
 end

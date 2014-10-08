@@ -42,6 +42,8 @@ group :development, :test do
   gem "nyan-cat-formatter"
   gem "dotenv-rails"
   gem "quiet_assets"
+  gem "shoulda-matchers"
+  gem "valid_attribute"
 end
 
 group :production do

@@ -1,4 +1,6 @@
-<h1><%= @goal.goal %></h1>
+<p>my goal:</p>
+<h1><%= @goal.name %></h1>
+<p><%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
 <ul>
   <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%></li><br>
   <li>Duration: <%= @goal.duration %> minutes </li><br>
@@ -7,6 +9,16 @@
   <li>Objective <br>
       <%= @goal.objective %></li><br>
 </ul>
-<%= link_to "Revise this Goal", edit_goal_path(@goal) %>
-<%= link_to "Add another Goal", new_goal_path %>
-<%= link_to "View all my Goals", goals_path %>
+
+<% if !@goal.tasks.empty? %>
+  <h2>Steps towards your goal</h2><p><%= link_to "Take Steps", new_goal_task_path(@goal) %></p>
+  <ul>
+    <% @goal.tasks.each do |task| %>
+      <li>
+        <%= link_to task.focus, task_path(task) %> | <%= task.methodology_id %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
+      </li>
+      <% end %>
+  </ul>
+<% else %>
+  <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
+<% end %>
