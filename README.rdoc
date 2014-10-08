@@ -34,6 +34,15 @@ ER Diagram (10/6)
 USER STORIES
 ----------------------
 
+Aa. As an authenticated user, I want to be able to log-in and save a profile
+    with all of my goals, tasks and progress.
+    #Acceptance Criteria
+      1. I must specify a valid email address.
+      2. I must specify a valid username.
+      3. I must specify a password and confirm that password.
+      4. If I do not do the above, I get an error message.
+      5.  If I specify valid information, I register my account and get confirmation.
+
 A.  As a learner, I want to keep track of my learning goals and progress.
     #Acceptance Criteria
       1.  I can submit a new goal, which must contain: the time I expect to

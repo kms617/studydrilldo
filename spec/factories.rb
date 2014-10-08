@@ -1,10 +1,12 @@
 FactoryGirl.define do
-  # factory :user do
-  #   sequence(:email) { |n| "fake#{n}@fake.com"}
-  #   sequence(:name) { |n| "fake#{n}"}
-  #   password "12345678"
-  #   confirmed_at Time.now
-  # end
+  factory :user do
+    sequence(:email) { |n| "fake#{n}@fake.com"}
+    sequence(:username) { |n| "fake#{n}"}
+    sequence(:first_name) { |n| "Fakey#{n}"}
+    sequence(:last_name) { |n| "McFakerson#{n}"}
+    password "12345678"
+    # confirmed_at Time.now
+  end
 
   factory :goal do
     sequence(:name) { |n| "Learn Ruby #{n}" }
