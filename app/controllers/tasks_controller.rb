@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_filter :prepare_methodologies
+  before_action :authenticate_user!
 
   def index
     @tasks = Task.all.order(created_at: :desc)
