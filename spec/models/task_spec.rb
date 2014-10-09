@@ -10,6 +10,9 @@ RSpec.describe Task, model: true do
   it { should have_valid(:completed).when(true, false) }
   it { should_not have_valid(:completed).when(nil, '') }
 
+  it { should have_valid(:secret).when(true, false) }
+  it { should_not have_valid(:secret).when(nil, '') }
+
   it { should have_valid(:focus).when('Recursion', 'Testing') }
   it { should_not have_valid(:focus).when(nil, '') }
 

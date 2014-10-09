@@ -45,6 +45,29 @@ feature 'user submits a new goal' do
 
   end
 
+  scenario 'user submits a private goal' do
+    # User Story: I can submit a new goal, which must contain: the time I expect to
+    # complete it in,the focus of the goal and whether or not I completed
+    # it. I may optionally submit an objective for the goal.
+
+    goal = FactoryGirl.build(:goal)
+
+    visit new_goal_path
+    fill_in "Goal", with: goal.name
+    choose 'goal_completed_false'
+    check 'goal_secret'
+    fill_in "Duration", with: goal.duration
+    fill_in "Objective", with: goal.objective
+    click_button "Create Goal"
+
+    expect(page).to have_content("Your goal has successfully been set!")
+    expect(page).to have_content(goal.name)
+    expect(page).to have_content(goal.duration)
+    expect(page).to have_content(goal.objective)
+    expect(page).to have_content("Private Goal")
+
+  end
+
   scenario 'user submits a form with errors' do
     # User Story: 1b. If there are errors in my form,
     # I want to receive an error message detailing my

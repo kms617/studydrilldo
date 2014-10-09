@@ -19,6 +19,7 @@ feature 'user submits a new step' do
     #I can optionally include a description of the task.
     task = FactoryGirl.build(:task)
     visit new_goal_task_path(@goal)
+
     fill_in "Focus", with: task.focus
     fill_in "Duration", with: task.duration
     fill_in "task_action_url", with: task.action_url
@@ -26,9 +27,33 @@ feature 'user submits a new step' do
     choose 'task_completed_false'
     select @methodology.name, :from => "task_methodology_id"
     click_button "Create Task"
+
     expect(page).to have_content("Step successfully taken!")
     expect(page).to have_content(task.focus)
   end
+
+  scenario 'user submits a private step' do
+    #I can add a step towards a goal. Each task must include:
+    #the focus of the step, if it's completed or planned, its
+    #duration, and the appropriate methodology.
+    #I can optionally include a description of the task.
+    task = FactoryGirl.build(:task)
+    visit new_goal_task_path(@goal)
+
+    fill_in "Focus", with: task.focus
+    fill_in "Duration", with: task.duration
+    fill_in "task_action_url", with: task.action_url
+    fill_in "Description", with: task.description
+    choose 'task_completed_false'
+    check 'task_secret'
+    select @methodology.name, :from => "task_methodology_id"
+    click_button "Create Task"
+
+    expect(page).to have_content("Step successfully taken!")
+    expect(page).to have_content(task.focus)
+    expect(page).to have_content("Private Step")
+  end
+
 
   scenario 'user submits an incomplete form for a step' do
     #If I fail to submit a complete form, I want to receive an

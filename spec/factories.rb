@@ -9,17 +9,21 @@ FactoryGirl.define do
   end
 
   factory :goal do
+    user
     sequence(:name) { |n| "Learn Ruby #{n}" }
     duration 140
     completed true
+    secret false
     objective "use inheritance wisely"
   end
 
   factory :task do
+    user
     goal
     focus "Inheritance Drills"
     methodology
     completed false
+    secret false
     duration 20
     description "did drills on Ruby Monk, found them to be useful"
     action_url "https://www.rubymonk.com"

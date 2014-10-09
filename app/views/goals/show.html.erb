@@ -1,5 +1,8 @@
 <p>my goal:</p>
 <h1><%= @goal.name %></h1>
+<% if @goal.secret %>
+  <p>Private Goal</p>
+<% end %>
 <p><%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
 <ul>
   <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%></li><br>
@@ -16,6 +19,9 @@
     <% @goal.tasks.each do |task| %>
       <li>
         <%= link_to task.focus, task_path(task) %> | <%= task.methodology_id %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
+        <% if task.secret %>
+         <p>Private Step</p>
+        <% end %>
       </li>
       <% end %>
   </ul>

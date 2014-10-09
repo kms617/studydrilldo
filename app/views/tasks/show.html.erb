@@ -1,4 +1,7 @@
 <%= @task.focus %>
+<% if @task.secret %>
+  <p>Private Task</p>
+<% end %>
 <% if @task.action %><%= @task.action %><% else %><%= @task.action_url %><% end %>
 <ul>
   <li>

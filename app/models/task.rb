@@ -1,10 +1,13 @@
 class Task < ActiveRecord::Base
+  belongs_to :user
   belongs_to :goal
   belongs_to :methodology
 
+  validates :user, presence: true
   validates :goal, presence: true
   validates :methodology, presence: true
-  validates_inclusion_of :completed, :in => [true, false]
+  validates_inclusion_of :completed, in: [true, false]
+  validates_inclusion_of :secret, in: [true, false]
   validates :focus, presence: true
   validates :duration, presence: true
   validates_numericality_of :duration, greater_than: 0

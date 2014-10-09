@@ -13,6 +13,11 @@
   </div>
 <% end %>
 <p>
+  <%= f.check_box :secret %>
+  <%= f.label :secret, "Make this step private" %>
+</p>
+
+<p>
   <%= f.label :focus %>
   <%= f.text_field :focus %>
 </p>
