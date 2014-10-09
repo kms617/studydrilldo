@@ -45,7 +45,7 @@ feature 'user submits a new goal' do
 
   end
 
-  scenario 'user submits a private goal', focus: true do
+  scenario 'user submits a private goal' do
     # User Story: I can submit a new goal, which must contain: the time I expect to
     # complete it in,the focus of the goal and whether or not I completed
     # it. I may optionally submit an objective for the goal.

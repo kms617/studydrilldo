@@ -19,6 +19,9 @@
     <% @goal.tasks.each do |task| %>
       <li>
         <%= link_to task.focus, task_path(task) %> | <%= task.methodology_id %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
+        <% if task.secret %>
+         <p>Private Step</p>
+        <% end %>
       </li>
       <% end %>
   </ul>

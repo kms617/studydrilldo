@@ -13,7 +13,8 @@
   </div>
 <% end %>
 <p>
-  <%= f.radio_button :shared, false %><label for="shared_false">Make this task private</label>
+  <%= f.check_box :secret %>
+  <%= f.label :secret, "Make this step private" %>
 </p>
 
 <p>

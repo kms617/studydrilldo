@@ -23,7 +23,7 @@ FactoryGirl.define do
     focus "Inheritance Drills"
     methodology
     completed false
-    shared true
+    secret false
     duration 20
     description "did drills on Ruby Monk, found them to be useful"
     action_url "https://www.rubymonk.com"

@@ -27,6 +27,7 @@ group :development, :test do
   gem "quiet_assets"
   gem "shoulda-matchers"
   gem "valid_attribute"
+  gem "nyan-cat-formatter"
 end
 
 group :production do
