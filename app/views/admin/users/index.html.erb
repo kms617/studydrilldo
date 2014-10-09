@@ -1,0 +1,8 @@
+<h1>Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.username, user_path(user) %> | <%= user.email %> | Created: <%= user.created_at.strftime('%A, %b %d, %Y %l:%M %p') %> | Profile last updated: <%= user.created_at.strftime('%A, %b %d, %Y %l:%M %p') %> | <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Do you really want to delete this user?' }%>
+    </li>
+  <% end %>
+  </ul>
