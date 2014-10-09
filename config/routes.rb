@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   get 'about/index'
   root 'about#home'
+
+  devise_for :users
 
   resources :goals, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
@@ -9,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:index, :create, :new, :show, :edit, :update, :destroy]
+
+  resources :users, only: [:show]
 end
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
