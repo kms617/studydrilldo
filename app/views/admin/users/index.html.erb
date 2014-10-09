@@ -1,8 +1,17 @@
-<h1>Users</h1>
+<h2>Admin Users</h2>
 <ul>
-  <% @users.each do |user| %>
+  <% @admins.each do |admin| %>
     <li>
-      <%= link_to user.username, user_path(user) %> | <%= user.email %> | Created: <%= user.created_at.strftime('%A, %b %d, %Y %l:%M %p') %> | Profile last updated: <%= user.created_at.strftime('%A, %b %d, %Y %l:%M %p') %> | <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Do you really want to delete this user?' }%>
+      <%= link_to admin.username, user_path(admin) %> | <%= admin.email %> | Created: <%= admin.created_at.strftime('%b %d, %Y') %> | Profile last updated: <%= admin.created_at.strftime('%b %d, %Y') %>
+    </li>
+  <% end %>
+  </ul>
+
+<h2>Regular Users</h2>
+<ul>
+  <% @members.each do |member| %>
+    <li>
+      <%= link_to member.username, user_path(member) %> | <%= member.email %> | Created: <%= member.created_at.strftime('%b %d, %Y') %> | Profile last updated: <%= member.created_at.strftime('%b %d, %Y') %> | <%= link_to 'Delete', admin_user_path(member), method: :delete, data: { confirm: 'Do you really want to delete this user?' }%>
     </li>
   <% end %>
   </ul>
