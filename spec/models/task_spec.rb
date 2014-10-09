@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, model: true do
+  it { should belong_to(:user) }
   it { should belong_to(:goal) }
   it { should belong_to(:methodology) }
 
@@ -19,10 +20,8 @@ RSpec.describe Task, model: true do
   it { should have_valid(:duration).when(5, 10, 50) }
   it { should_not have_valid(:duration).when(nil, '', -10) }
 
-  # it { should have_valid(:focus).when() }
-  # it { should_not have_valid(:focus).when(nil, '') }
-
-  # it { should have_valid(:description).when() }
+  it { should have_valid(:focus).when('Rails', 'ActiveRecord') }
+  it { should_not have_valid(:focus).when(nil, '') }
 
   describe 'should validate presence of either action or action_url fields' do
     it 'is valid when action is present' do

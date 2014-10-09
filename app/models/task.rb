@@ -14,10 +14,14 @@ class Task < ActiveRecord::Base
   validates :focus, length: { maximum: 100 }
   validates :description, length: { maximum: 255 }
   validate :action_or_url
+  validates :action_url, format: { with: URI.regexp },
+    if: Proc.new { |a| a.url.present? }, if: 'action_url.present?'
 
   def action_or_url
     if action.blank? && action_url.blank?
       errors[:base] << "Please enter either an action or a url."
     end
   end
+
+
 end
