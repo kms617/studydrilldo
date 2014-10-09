@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 feature 'user updates a goal' do
-  before :each do
+   before :each do
+    @user = FactoryGirl.create(:user)
     @goal = FactoryGirl.create(:goal)
+    @methodology = FactoryGirl.create(:methodology)
+
+    sign_in_as(@user)
   end
 
   scenario 'user updates a goal successfully' do

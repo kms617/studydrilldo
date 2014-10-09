@@ -5,8 +5,11 @@ feature 'user submits a new step' do
   #steps I've taken to reach my goal.
 
   before :each do
+    @user = FactoryGirl.create(:user)
     @goal = FactoryGirl.create(:goal)
     @methodology = FactoryGirl.create(:methodology)
+
+    sign_in_as(@user)
   end
 
   scenario 'user submits a new step with a complete form' do

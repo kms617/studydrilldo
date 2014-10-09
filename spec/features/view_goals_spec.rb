@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'user views her goals' do
+    before :each do
+        @user = FactoryGirl.create(:user)
+        sign_in_as(@user)
+    end
 
   scenario 'user views a new goal after it has been submitted' do
     # After I submit my form, I can see all of the information for

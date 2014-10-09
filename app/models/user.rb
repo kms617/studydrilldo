@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
       errors[:base] << "Please enter a valid email."
     end
   end
+
+  def admin?
+    role == 'admin'
+  end
+
 end

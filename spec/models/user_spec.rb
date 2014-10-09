@@ -15,4 +15,16 @@ RSpec.describe User, model: true do
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
+
+  describe '#admin?' do
+    it 'is not an admin if the role is not admin' do
+      user = User.new(role: 'member')
+      expect(user).to_not be_admin
+    end
+
+    it 'is an admin if the role is admin' do
+      user = User.new(role: 'admin')
+      expect(user).to be_admin
+    end
+  end
 end

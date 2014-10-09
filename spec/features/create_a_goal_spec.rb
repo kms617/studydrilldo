@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'user submits a new goal' do
+  before :each do
+    @user = FactoryGirl.create(:user)
+    sign_in_as(@user)
+  end
 
   scenario 'user submits a complete form' do
     # User Story: I can submit a new goal, which must contain: the time I expect to
