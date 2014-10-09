@@ -59,4 +59,9 @@ class GoalsController < ApplicationController
   def goal_params
     params.require(:goal).permit(:name, :duration, :completed, :objective)
   end
+
+  def authorize_user
+    unless user_signed_in? and current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+  end
 end
