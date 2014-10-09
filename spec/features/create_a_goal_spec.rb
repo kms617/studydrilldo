@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user submits a new goal', focus: true do
+feature 'user submits a new goal' do
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as(@user)

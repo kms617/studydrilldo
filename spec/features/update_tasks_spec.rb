@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'user updates a task' do
   before :each do
+    @user = FactoryGirl.create(:user)
     @goal = FactoryGirl.create(:goal)
-    @task = FactoryGirl.create(:task)
     @methodology = FactoryGirl.create(:methodology)
+    @task = FactoryGirl.create(:task)
+    sign_in_as(@user)
   end
 
   scenario 'user updates a task successfully' do
