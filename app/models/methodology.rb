@@ -5,4 +5,7 @@ class Methodology < ActiveRecord::Base
   def self.types
     ['study', 'drill', 'do']
   end
+
+  validates_inclusion_of :name, in: Methodology.types
+
 end
