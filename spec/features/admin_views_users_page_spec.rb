@@ -14,7 +14,7 @@ feature 'admin can see a list of users' do
 
   scenario 'unauthorized users are redirected' do
     sign_in_as(user)
-    visit '/admin/users'
+    visit admin_users_path
 
     expect(page).to have_content('not authorized')
     expect(current_path).to eq(root_path)

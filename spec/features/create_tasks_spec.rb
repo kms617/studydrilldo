@@ -12,7 +12,7 @@ feature 'user submits a new step' do
     sign_in_as(@user)
   end
 
-  scenario 'user submits a new step with a complete form' do
+  scenario 'user submits a new task with a complete form' do
     #I can add a step towards a goal. Each task must include:
     #the focus of the step, if it's completed or planned, its
     #duration, and the appropriate methodology.
@@ -32,7 +32,7 @@ feature 'user submits a new step' do
     expect(page).to have_content(task.focus)
   end
 
-  scenario 'user submits a private step' do
+  scenario 'user submits a private task' do
     #I can add a step towards a goal. Each task must include:
     #the focus of the step, if it's completed or planned, its
     #duration, and the appropriate methodology.

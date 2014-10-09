@@ -7,7 +7,7 @@ class Goal < ActiveRecord::Base
   validates :duration, presence: true
   validates :name, length: { maximum: 100 }
   validates :objective, length: { maximum: 255}
-  validates_numericality_of :duration
+  validates_numericality_of :duration, greater_than: 0
   validates_inclusion_of :completed, in: [true, false]
   validates_inclusion_of :secret, in: [true, false]
 
