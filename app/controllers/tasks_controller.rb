@@ -18,6 +18,8 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @goal = Goal.find(params[:goal_id])
     @task.goal = @goal
+    @user = User.find(params[:user_id])
+    @goal.user = @user
 
     if @task.save
       flash[:notice] = "Step successfully taken!"
