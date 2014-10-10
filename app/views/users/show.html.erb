@@ -1,4 +1,5 @@
 <h2><%= @user.username %></h2>
+<div id="profile_photo"><p><%= image_tag(@user.profile_photo) %></p></div>
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 <p><%= @user.email %></p>
 <%= link_to 'Edit', edit_user_registration_path %>
