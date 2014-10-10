@@ -67,4 +67,13 @@ class GoalsController < ApplicationController
       raise ActionController::RoutingError.new('Not Found')
     end
   end
+
+  # def done(goal)
+  #   if !goal.completed
+  #     "Ongoing"
+  #   else
+  #     "Completed"
+  #   end
+  # end
+
 end

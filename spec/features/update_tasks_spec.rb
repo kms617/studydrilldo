@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user updates a task', focus: true do
+feature 'user updates a task' do
   before :each do
     @user = FactoryGirl.create(:user)
     @goal = FactoryGirl.create(:goal)
