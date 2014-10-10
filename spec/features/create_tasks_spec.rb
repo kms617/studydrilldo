@@ -19,7 +19,7 @@ feature 'user submits a new step' do
     fill_in "task_action_url", with: task.action_url
     fill_in "Description", with: task.description
     choose 'task_completed_false'
-    select task.methodology.name, :from => "task_methodology_id"
+    select task.methodology.name, from: "task_methodology_id"
     click_button "Create Task"
 
     expect(page).to have_content("Step successfully taken!")
@@ -42,7 +42,7 @@ feature 'user submits a new step' do
     fill_in "Description", with: task.description
     choose 'task_completed_false'
     check 'task_secret'
-    select task.methodology.name, :from => "task_methodology_id"
+    select task.methodology.name, from: "task_methodology_id"
     click_button "Create Task"
 
     expect(page).to have_content("Step successfully taken!")
@@ -93,7 +93,7 @@ feature 'user submits a new step' do
                                   ‘naturals’ at computer programming.” James Adams, the director of education for
                                   the Association for Computing Machinery, agreed: “I don’t know of any other field,
                                   outside of teaching, where there’s as much opportunity for a woman.”"
-    select methodology.name, :from => "task_methodology_id"
+    select methodology.name, from: "task_methodology_id"
     click_button "Create Task"
 
     expect(page).to have_content("There was a problem, please try again.")
