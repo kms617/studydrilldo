@@ -4,28 +4,22 @@ feature 'user submits a new step' do
   #As a learner, I want to keep track of the
   #steps I've taken to reach my goal.
 
-  before :each do
-    @user = FactoryGirl.create(:user)
-    @goal = FactoryGirl.create(:goal)
-    @methodology = FactoryGirl.create(:methodology)
-
-    sign_in_as(@user)
-  end
-
   scenario 'user submits a new task with a complete form' do
     #I can add a step towards a goal. Each task must include:
     #the focus of the step, if it's completed or planned, its
     #duration, and the appropriate methodology.
     #I can optionally include a description of the task.
     task = FactoryGirl.build(:task)
-    visit new_goal_task_path(@goal)
+
+    sign_in_as(task.user)
+    visit new_goal_task_path(task.goal)
 
     fill_in "Focus", with: task.focus
     fill_in "Duration", with: task.duration
     fill_in "task_action_url", with: task.action_url
     fill_in "Description", with: task.description
     choose 'task_completed_false'
-    select @methodology.name, :from => "task_methodology_id"
+    select task.methodology.name, :from => "task_methodology_id"
     click_button "Create Task"
 
     expect(page).to have_content("Step successfully taken!")
@@ -38,7 +32,9 @@ feature 'user submits a new step' do
     #duration, and the appropriate methodology.
     #I can optionally include a description of the task.
     task = FactoryGirl.build(:task)
-    visit new_goal_task_path(@goal)
+
+    sign_in_as(task.user)
+    visit new_goal_task_path(task.goal)
 
     fill_in "Focus", with: task.focus
     fill_in "Duration", with: task.duration
@@ -46,7 +42,7 @@ feature 'user submits a new step' do
     fill_in "Description", with: task.description
     choose 'task_completed_false'
     check 'task_secret'
-    select @methodology.name, :from => "task_methodology_id"
+    select task.methodology.name, :from => "task_methodology_id"
     click_button "Create Task"
 
     expect(page).to have_content("Step successfully taken!")
@@ -59,8 +55,10 @@ feature 'user submits a new step' do
     #If I fail to submit a complete form, I want to receive an
     #error message prompting me to provide correct information and
     #alerting me to my errors.
+    goal = FactoryGirl.create(:goal)
 
-    visit new_goal_task_path(@goal)
+    sign_in_as(goal.user)
+    visit new_goal_task_path(goal)
 
     click_button "Create Task"
 
@@ -75,8 +73,11 @@ feature 'user submits a new step' do
   scenario 'user submits form with errors' do
     #If there are errors in my form, I want to receive an
     #error message detailing my mistakes so that I can correct them.
+    goal = FactoryGirl.create(:goal)
+    methodology = FactoryGirl.create(:methodology)
 
-    visit new_goal_task_path(@goal)
+    sign_in_as(goal.user)
+    visit new_goal_task_path(goal)
 
     fill_in "Focus", with: "As late as the 1960s many people perceived computer
                             programming as a natural career choice for savvy young women. Even the
@@ -92,7 +93,7 @@ feature 'user submits a new step' do
                                   ‘naturals’ at computer programming.” James Adams, the director of education for
                                   the Association for Computing Machinery, agreed: “I don’t know of any other field,
                                   outside of teaching, where there’s as much opportunity for a woman.”"
-    select @methodology.name, :from => "task_methodology_id"
+    select methodology.name, :from => "task_methodology_id"
     click_button "Create Task"
 
     expect(page).to have_content("There was a problem, please try again.")
@@ -103,6 +104,8 @@ feature 'user submits a new step' do
 
   scenario 'user can view the details for a task' do
     task = FactoryGirl.create(:task)
+
+    sign_in_as(task.user)
     visit task_path(task)
 
     expect(page).to have_content(task.focus)
