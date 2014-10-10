@@ -32,7 +32,7 @@
 <p>
   <div class="field">
     <%= f.label :methodology %><br>
-    <%= f.collection_select(:methodology_id, @methodologies, :id, :name, :include_blank => "Select a methodology...") %>
+    <%= f.collection_select(:methodology_id, @methodologies, :id, :name,  include_blank:  "Select a methodology...") %>
   </div>
 </p>
 
