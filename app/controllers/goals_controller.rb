@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_goal, only: [:edit, :update, :destroy]
 
   def index
     @goals = Goal.all.order(created_at: :desc)
@@ -32,8 +33,6 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal = Goal.find(params[:id])
-
     if @goal.update(goal_params)
       flash[:notice] = "Goal Updated"
       redirect_to goal_path
@@ -44,8 +43,6 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    @goal = Goal.find(params[:id])
-
     if @goal.destroy
       flash[:notice] = "Goal Deleted"
       redirect_to goals_path
@@ -57,6 +54,10 @@ class GoalsController < ApplicationController
 
   private
 
+  def set_goal
+      @goal = Goal.find(params[:id])
+  end
+
   def goal_params
     params.require(:goal).permit(:name, :duration, :completed, :objective, :secret, :user_id)
   end
@@ -66,4 +67,13 @@ class GoalsController < ApplicationController
       raise ActionController::RoutingError.new('Not Found')
     end
   end
+
+  # def done(goal)
+  #   if !goal.completed
+  #     "Ongoing"
+  #   else
+  #     "Completed"
+  #   end
+  # end
+
 end

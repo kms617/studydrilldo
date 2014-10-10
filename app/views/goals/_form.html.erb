@@ -1,16 +1,17 @@
 <%= form_for @goal do |f| %>
-  <% if @goal.errors.any? %>
+<% if @goal.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being updated:</h2>
+    <h3><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being submitted:</h3>
+
     <ul>
-      <% @goal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+    <% @goal.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
   </div>
-  <% end %>
-<div class="form">
-  <p>
+<% end %>
+
+<p>
   <%= f.label :name, "Goal" %>
   <%= f.text_field :name %>
 </p>
@@ -32,7 +33,11 @@
 </p>
 
 <p>
+  <%= f.check_box :secret %>
+  <%= f.label :secret, "Make this goal private" %>
+</p>
+
+<p>
   <%= f.submit class: 'button radius' %>
 </p>
 <% end %>
-</div>

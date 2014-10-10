@@ -13,7 +13,8 @@ feature 'user updates a task' do
     # I want to be able to revise a task if I reevaluate my priorities or
     #discover something new. Or if I make a mistake.
     visit edit_task_path(@task)
-    select @methodology.name, :from => "task_methodology_id"
+
+    select @methodology.name, from: "task_methodology_id"
     fill_in "Description", with: "Learn lots of Ruby"
     click_button "Update Task"
 

@@ -1,5 +1,5 @@
 <div class="form">
-<%= form_for @task, url: task_path do |f| %>
+<%= form_for [@goal, @task], :url => {:action => :update} do |f| %>
 <% if @task.errors.any? %>
   <div id="error_explanation">
     <h3><%= pluralize(@task.errors.count, "error") %> prohibited this task from being submitted:</h3>
@@ -11,6 +11,12 @@
     </ul>
   </div>
 <% end %>
+<p>
+  <%= f.check_box :secret %>
+  <%= f.label :secret, "Make this step private" %>
+</p>
+
+<p>
   <%= f.label :focus %>
   <%= f.text_field :focus %>
 </p>
@@ -18,7 +24,7 @@
 <p>
   <%= f.label :action %>
   <%= f.text_field :action %>
-  <%= f.label :action_url, "Online Resource? Enter a url" %>
+  <%= f.label :action_url %>
   <%= f.text_field :action_url %>
 </p>
 
@@ -49,5 +55,6 @@
   <%= f.submit class: 'button radius' %>
 </p>
 <% end %>
+
 </div>
 <p><%= link_to 'Back', goal_path(@task.goal_id) %></p>
