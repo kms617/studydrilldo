@@ -7,7 +7,7 @@ feature 'user submits profile photo' do
   end
 
   let(:sample_photo) do
-    Rails.root.join("spec/data/bean.jpg")
+    Rails.root.join("spec/data/bean.JPG")
   end
 
   scenario 'user adds a profile photo to an existing account then views the photo on their account' do
