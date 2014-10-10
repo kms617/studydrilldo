@@ -6,6 +6,6 @@ class Methodology < ActiveRecord::Base
     ['study', 'drill', 'do']
   end
 
-  # validates_inclusion_of :name, in: Methodology.types
+  validates_inclusion_of :name, in: Methodology.types
 
 end

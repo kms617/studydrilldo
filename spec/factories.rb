@@ -30,6 +30,6 @@ FactoryGirl.define do
   end
 
   factory :methodology do
-    sequence(:name) { |n| "Methodology.types.sample ##{n}" }
+    sequence(:name) { |n| Methodology.types.sample }
   end
 end
