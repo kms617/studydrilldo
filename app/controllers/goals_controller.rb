@@ -56,7 +56,7 @@ class GoalsController < ApplicationController
   private
 
   def set_goal
-      @goal = Goal.authorized_find(params[:id])
+      @goal = Goal.authorized_find(current_user, params[:id])
   end
 
   def goal_params

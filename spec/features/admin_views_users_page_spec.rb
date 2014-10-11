@@ -16,8 +16,7 @@ feature 'admin can see a list of users' do
     sign_in_as(user)
     visit admin_users_path
 
-    expect(page).to have_content('not authorized')
-    expect(current_path).to eq(root_path)
+    expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 
 end
