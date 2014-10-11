@@ -112,3 +112,6 @@ G.  As an engaged learner, I'd like to know what format of activities work best 
 
 H.   As an active learner, I'd like to know what other people are doing to learn.
 ...
+
+#####
+[![Build Status](https://travis-ci.org/kms617/toy.svg?branch=master)](https://travis-ci.org/kms617/toy)
