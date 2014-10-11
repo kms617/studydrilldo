@@ -1,3 +1,4 @@
+<div class="login">
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -10,7 +11,7 @@
     <%= f.input :last_name, label: 'Last Name' %>
     <%= f.input :password, required: true %>
     <%= f.input :password_confirmation, label: 'Password Confirmation', required: true %>
-    <%= f.file_field :profile_photo %>
+    <%= f.input :profile_photo, type: :file %>
   </div>
 
   <div class="form-actions">

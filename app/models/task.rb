@@ -23,5 +23,11 @@ class Task < ActiveRecord::Base
     end
   end
 
-
+  def self.authorized_find(user, id)
+    if user.admin?
+      find(id)
+    else
+      where(user: user).find(id)
+    end
+  end
 end
