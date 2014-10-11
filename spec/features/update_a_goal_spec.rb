@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'user updates a goal' do
    before :each do
     @user = FactoryGirl.create(:user)
-    @goal = FactoryGirl.create(:goal)
+    @goal = FactoryGirl.create(:goal, user: @user)
     @methodology = FactoryGirl.create(:methodology)
 
     sign_in_as(@user)

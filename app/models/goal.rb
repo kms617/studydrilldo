@@ -1,6 +1,6 @@
 class Goal < ActiveRecord::Base
   belongs_to :user
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   validates :user, presence: true
   validates :name, presence: true
@@ -10,5 +10,13 @@ class Goal < ActiveRecord::Base
   validates_numericality_of :duration, greater_than: 0
   validates_inclusion_of :completed, in: [true, false]
   validates_inclusion_of :secret, in: [true, false]
+
+  def self.authorized_find(user, id)
+    if user.admin?
+      find(id)
+    else
+      where(user: user).find(id)
+    end
+  end
 
 end

@@ -20,4 +20,8 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 
+
+  require 'coveralls'
+  Coveralls.wear!('rails')
+
 end

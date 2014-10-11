@@ -5,7 +5,7 @@
 <% end %>
 <p><%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
 <ul>
-  <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%></li><br>
+  <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%></li><br>
   <li>Duration: <%= @goal.duration %> minutes </li><br>
   <li><% if @goal.completed == false %> Ongoing
       <% else %> Completed <% end %></li><br>
@@ -18,7 +18,7 @@
   <ul>
     <% @goal.tasks.each do |task| %>
       <li>
-        <%= link_to task.focus, task_path(task) %> | <%= task.methodology_id %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %p') %>
+        <%= link_to task.focus, task_path(task) %> | <%= task.methodology.name %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %P') %>
         <% if task.secret %>
          <p>Private Step</p>
         <% end %>

@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:edit, :update, :destroy]
 
   def index
-    @goals = Goal.all.order(created_at: :desc)
+    @goals = Goal.where(secret: false).order(created_at: :desc)
   end
 
   def new
@@ -24,7 +24,8 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.includes(:tasks).find(params[:id])
+    @goal = Goal.includes(:user, :tasks).find(params[:id])
+    @user_image = @goal.user.profile_photo.thumb
     @task = Task.new
   end
 
@@ -55,7 +56,7 @@ class GoalsController < ApplicationController
   private
 
   def set_goal
-      @goal = Goal.find(params[:id])
+      @goal = Goal.authorized_find(current_user, params[:id])
   end
 
   def goal_params

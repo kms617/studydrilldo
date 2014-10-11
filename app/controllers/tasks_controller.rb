@@ -15,8 +15,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
     @goal = Goal.find(params[:goal_id])
+    @task = Task.new(task_params)
     @task.goal = @goal
     @task.user = current_user
 
@@ -55,7 +55,7 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = Task.authorized_find(current_user, params[:id])
   end
 
   def task_params

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :goals, dependent: :destroy
+  has_many :tasks, dependent: :destroy
+
   validates :username, presence: true
   validate :email_valid
   # :confirmable, :lockable, :timeoutable and :omniauthable

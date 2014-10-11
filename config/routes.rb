@@ -15,7 +15,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+  resources :users do
+    resources :goals, only: [:index, :create, :new, :show, :edit, :update, :destroy]
+  end
+
   namespace :admin do
     resources :users, only: [:index, :destroy]
   end
+
+  resources :about, only: [:index, :home]
 end

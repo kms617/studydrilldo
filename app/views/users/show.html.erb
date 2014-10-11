@@ -7,12 +7,10 @@
 <div class = "mygoals">
 <h1>My Goals</h1><br>
 <ul>
-  <% @goals.each do |goal| %>
+  <% @user_goals.each do |goal| %>
   <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
-      <% if goal.completed == false %> Ongonig
+      <% if goal.completed == false %> Ongoing
       <% else %> Completed <% end %></li><br>
   <% end %>
 </ul>
 </div>
-
-

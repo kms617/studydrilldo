@@ -8,11 +8,11 @@
     Goal: <%= @task.goal.name %>
   </li>
   <li>
-    Taken on: <%= @task.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> | Duration <%= @task.duration %> minutes | <% if @task.completed == false %>Ongoing
+    Taken on: <%= @task.created_at.strftime('%A, %b %d, %Y %l:%M %P')%> | Duration <%= @task.duration %> minutes | <% if @task.completed == false %>Ongoing
       <% else %>Completed<% end %>
   </li>
   <li>
-    <%= @task.methodology_id %>
+    <%= @task.methodology.name %>
   </li>
   <li>
     Description:<br><%= @task.description %>
