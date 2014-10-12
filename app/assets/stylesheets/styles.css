@@ -211,7 +211,7 @@ button:hover, .button:hover, button:active, .button:hover {
   background-color: #FFFFFF;
   display: inline-block;
   position: relative;
-  maring: 1%;
+  margin: 1%;
   float: left;
   padding: 25px;
 }
