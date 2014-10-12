@@ -7,7 +7,7 @@ feature 'user submits profile photo' do
   end
 
   let(:sample_photo) do
-    Rails.root.join("spec/data/bean.jpg")
+    Rails.root.join("spec/data/tiny_bean.jpg")
   end
 
   scenario 'user adds a profile photo to an existing account then views the photo on their account' do
@@ -20,7 +20,7 @@ feature 'user submits profile photo' do
     expect(page).to have_content("Your account has been updated successfully.")
 
     visit user_path(@user)
-    expect(page).to have_css("img[alt=\"Bean\"]")
+    expect(page).to have_css("img[alt=\"Tiny_Bean\"]")
 
   end
 end

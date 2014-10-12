@@ -1,15 +1,209 @@
+body {
+  font-family: 'Lora', serif;
+  color: rgb(66, 26, 0);
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+h1, h2 {
+  font-family: 'Lato', sans-serif;
+  text-decoration: bold;
+  color: rgb(66, 26, 0);
+}
+
+h3 {
+  font-style: bold, italic;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  color: rgb(66, 26, 0);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(255, 142, 66);
+}
+
+ul {
+  line-height: 30px;
+}
+
 .nav {
   padding-bottom: 0.5em;
 }
 
 .nav ul, .nav li{
+  font-family: 'Lato', sans-serif;
   list-style-type: none;
   display: inline-block;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-left: 0.5em;
+}
+
+.logo, .logo a{
+  background-color: rgb(255, 142, 66);
+  font-family: Neucha, cursive;
+  font-size: 48px;
+  text-align: center;
+  display: inline-block;
+  padding: 5px;
+  color: rgb(66, 26, 0);
+}
+
+.logo:hover, .logo a:hover{
+  background-color: rgb(234, 151, 88);
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  border-radius: 4px;
+  border-color: #ccc;
+  border: 1px solid;
+  border-color: #ccc;
+  padding: 5px;
+}
+
+input[type="file"] {
+  font-size: 0.7em;
+}
+
+textarea {
+  height: 10em;
+  border-radius: 4px;
+}
+
+button, .button {
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(66, 173, 255);
+  color: #FFFFFF;
+  padding: 8px 12px;
+  font-size: 0.8em;
+}
+
+button:hover, .button:hover, button:active, .button:hover {
+  background-color: rgb(234, 151, 88);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.private-flag {
+  background-color: rgb(66, 26, 0);
+  width: 100px;
+  padding: 8px 12px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
+}
+
+.private-line {
+  background-color: rgb(66, 26, 0);
+  width: 75px;
+  padding: 4px 2px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
+}
+
+.ongoing-flag {
+  background-color: rgb(255, 142, 66);
+  width: 100px;
+  padding: 8px 12px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
+}
+.completed-flag {
+  background-color: rgb(0, 72, 127);
+  width: 100px;
+  padding: 8px 12px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.ongoing-line {
+  background-color: rgb(255, 142, 66);
+  width: 75px;
+  padding: 4px 2px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
 }
 
 #profile_photo {
   max-width: 200px;
   max-height: 300px;
+}
+
+.imgframe {
+   border: 1px solid rgb(66, 26, 0);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.alert-box.success, .alert-box.warning {
+  padding: 0.2em 0.7em;
+  font-size: 1em;
+}
+
+.alert-box.success {
+  background-color: rgb(234, 151, 88);
+  font-color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+}
+
+.alert-box.warning {
+  background-color: rgb(65, 171, 252);
+  font-color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+}
+
+.login {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.user-thumb img {
+  vertical-align: text-top;
+  float:left;
+  margin-right: 10px;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.user_info {
+  display: inline-block;
+  position: relative;
+  maring: 1%;
+  float: left;
+  padding: 25px;
+}
+
+.mygoals {
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  float: left;
+  padding: 10px;
 }

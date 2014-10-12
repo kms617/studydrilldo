@@ -16,6 +16,6 @@
 /tmp
 
 # Ignore uploaded files in test/development
-/public/uploads
+/public/uploads/user
 
 /coverage
