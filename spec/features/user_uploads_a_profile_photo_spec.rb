@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user submits profile photo' do
+feature 'user submits profile photo', focus: true do
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as(@user)
@@ -20,7 +20,7 @@ feature 'user submits profile photo' do
     expect(page).to have_content("Your account has been updated successfully.")
 
     visit user_path(@user)
-
+save_and_open_page
     expect(page).to have_css("img[alt=\"Tinybean\"]")
 
   end

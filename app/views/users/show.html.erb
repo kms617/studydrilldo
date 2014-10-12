@@ -1,7 +1,7 @@
 <div class="user_info">
 <h2><%= @user.username %></h2>
 <% if @user == current_user %><%= link_to 'Edit My Profile', edit_user_registration_path %><% end %>
-<div id="profile_photo"><p><%= image_tag(@user.profile_photo) width="200" height="300" alt="Profile Photo" %></p></div>
+<div id="profile_photo"><p><%= image_tag(@user.profile_photo, height: '300', width: '200')%></p></div>
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 </div>
 
