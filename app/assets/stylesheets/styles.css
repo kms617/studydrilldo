@@ -11,13 +11,14 @@ body {
   max-width: 1000px;
   min-height: 500px;
   margin: 0 auto;
-  padding: 0;
+  padding: 10 10 10 10;
   background-color: #FFFFFF;
+  border: solid 10px #FFFFFF;
 }
 
 .container ul {
   list-style: none;
-  padding: 0px;
+  padding: 10 10 10 10;
   margin: 0px;
   line-height: 15px;
 }
@@ -51,7 +52,7 @@ a:hover {
 
 .nav ul, .nav li{
   font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   list-style-type: none;
   display: inline-block;
   padding-top: 10px;
@@ -122,10 +123,11 @@ button:hover, .button:hover, button:active, .button:hover {
 
 .private-line {
   background-color: #421A00;
-  width: 75px;
+  width: 70px;
   padding: 4px 2px;
   font-family: 'Lato', sans-serif;
   color: #FFFFFF;
+  font-size: 12px;
   text-align: center;
   display: inline-block;
   line-height: 100%;
