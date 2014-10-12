@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user submits profile photo', focus: true do
+feature 'user submits profile photo' do
   before :each do
     @user = FactoryGirl.create(:user)
     sign_in_as(@user)
