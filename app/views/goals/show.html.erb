@@ -1,3 +1,4 @@
+<div class="container">
 <span><h1><%= @goal.name %></h1>
   <% if @goal.secret %>
     <div class="private-flag">Private Goal</div>
@@ -34,3 +35,4 @@
 <% else %>
   <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
 <% end %>
+</div>

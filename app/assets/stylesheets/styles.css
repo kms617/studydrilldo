@@ -1,14 +1,33 @@
 body {
   font-family: 'Lora', serif;
-  color: rgb(66, 26, 0);
+  color: #421A00;
   font-size: 16px;
   margin-top: 10px;
+  background-image: url('../images/30-brown-corkboard-background-sml.jpg');
+  background-repeat: repeat-xy;
+}
+
+.container {
+  max-width: 1000px;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+  border: 10px solid #FFFFFF;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 15px;
 }
 
 h1, h2 {
   font-family: 'Lato', sans-serif;
   text-decoration: bold;
-  color: rgb(66, 26, 0);
+  color: #421A00;
 }
 
 h3 {
@@ -17,32 +36,36 @@ h3 {
 
 a {
   font-family: 'Lato', sans-serif;
-  color: rgb(66, 26, 0);
+  color: #421A00;
 }
 
 a:hover {
   text-decoration: none;
-  color: rgb(255, 142, 66);
-}
-
-ul {
-  line-height: 30px;
+  color: #FF8E42;
 }
 
 .nav {
-  padding-bottom: 0.5em;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 .nav ul, .nav li{
   font-family: 'Lato', sans-serif;
+  font-size: 18px;
   list-style-type: none;
   display: inline-block;
   padding-top: 10px;
   padding-left: 0.5em;
 }
 
+.nav a {
+  text-decoration: none;
+}
+
 .logo, .logo a{
-  background-color: rgb(255, 142, 66);
+  background-color: #FF8E42;
   font-family: Neucha, cursive;
   font-size: 48px;
   text-align: center;
@@ -52,7 +75,7 @@ ul {
 }
 
 .logo:hover, .logo a:hover{
-  background-color: rgb(234, 151, 88);
+  background-color: #EA9758;
 }
 
 input[type="text"], textarea {
@@ -75,20 +98,21 @@ textarea {
 
 button, .button {
   font-family: 'Lato', sans-serif;
-  background-color: rgb(66, 173, 255);
+  background-color: #42ADFF;
   color: #FFFFFF;
   padding: 8px 12px;
-  font-size: 0.8em;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 button:hover, .button:hover, button:active, .button:hover {
-  background-color: rgb(234, 151, 88);
+  background-color: #EA9758;
   color: #FFFFFF;
   text-decoration: none;
 }
 
 .private-flag {
-  background-color: rgb(66, 26, 0);
+  background-color: #421A00;
   width: 100px;
   padding: 8px 12px;
   font-family: 'Lato', sans-serif;
@@ -99,7 +123,7 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .private-line {
-  background-color: rgb(66, 26, 0);
+  background-color: #421A00;
   width: 75px;
   padding: 4px 2px;
   font-family: 'Lato', sans-serif;
@@ -110,7 +134,7 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .ongoing-flag {
-  background-color: rgb(255, 142, 66);
+  background-color: #FF8E42;
   width: 100px;
   padding: 8px 12px;
   font-family: 'Lato', sans-serif;
@@ -120,7 +144,7 @@ button:hover, .button:hover, button:active, .button:hover {
   line-height: 100%;
 }
 .completed-flag {
-  background-color: rgb(0, 72, 127);
+  background-color: #00487F;
   width: 100px;
   padding: 8px 12px;
   font-family: 'Lato', sans-serif;
@@ -129,10 +153,11 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .ongoing-line {
-  background-color: rgb(255, 142, 66);
-  width: 75px;
+  background-color: #FF8E42;
+  width: 70px;
   padding: 4px 2px;
   font-family: 'Lato', sans-serif;
+  font-size: 12px;
   color: #FFFFFF;
   text-align: center;
   display: inline-block;
@@ -145,35 +170,25 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .imgframe {
-   border: 1px solid rgb(66, 26, 0);
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-.container ul {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
+   border: 1px solid #421A00;#
 }
 
 .alert-box.success, .alert-box.warning {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 10px;
   padding: 0.2em 0.7em;
   font-size: 1em;
 }
 
 .alert-box.success {
-  background-color: rgb(234, 151, 88);
+  background-color: #EA9758;
   font-color: #FFFFFF;
   font-family: 'Lato', sans-serif;
 }
 
 .alert-box.warning {
-  background-color: rgb(65, 171, 252);
+  background-color: #41ABFC;
   font-color: #FFFFFF;
   font-family: 'Lato', sans-serif;
 }
@@ -193,6 +208,7 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .user_info {
+  background-color: #FFFFFF;
   display: inline-block;
   position: relative;
   maring: 1%;
@@ -201,9 +217,99 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .mygoals {
+  background-color: #FFFFFF;
   display: inline-block;
   position: relative;
   margin: 1%;
   float: left;
   padding: 10px;
+  line-height: 30px;
+}
+
+.mygoals, li {
+  line-height: 30px;
+}
+
+.about_index {
+  max-width: 1000px;
+  position: relative;
+  margin: 1%;
+  float: left;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+}
+.about_index, img {
+  width: 150;
+  height: 150px;
+  border: 3px solid #FFFFFF;
+}
+
+input[type=text],
+input[type=password], {
+    width: 50%;
+    margin-top: 5px;
+    height: 25px;
+}
+
+input[type="text"],
+text {
+    width: 40%;
+    margin-top: 5px;
+    height: 25px;
+}
+
+input[type="textarea"],
+textarea {
+  width: 50%;
+  margin-top: 5px;
+  height: 75px;
+}
+
+
+input {
+    box-sizing: border-box;
+}
+
+.form-inputs, input[type=text],
+input[type=password],
+input[type=email],
+input[type=password_confirmation] {
+    width: 100%;
+    height: 25px;
+}
+
+input[type=text],
+input[type=password], {
+    width: 50%;
+    height: 25px;
+}
+
+input[type="text"],
+text {
+    width: 40%;
+    height: 25px;
+}
+
+input[type="textarea"],
+textarea {
+  width: 50%;
+  height: 75px;
+}
+
+
+input {
+    box-sizing: border-box;
+}
+
+.form-inputs, input[type=text],
+input[type=password],
+input[type=email],
+input[type=password_confirmation] {
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    height: 25px;
+    display: inline-block;
 }
