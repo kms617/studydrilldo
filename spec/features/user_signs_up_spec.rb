@@ -16,6 +16,7 @@ feature 'user sign up', %Q{
   scenario 'specifying valid and required information' do
     user = FactoryGirl.build(:user)
     visit root_path
+
     click_link "Sign Up"
 
     fill_in "Email", with: user.email

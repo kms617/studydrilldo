@@ -12,9 +12,7 @@ body {
   min-height: 500px;
   margin: 0 auto;
   padding: 0;
-  margin-bottom: 10px;
   background-color: #FFFFFF;
-  border: 10px solid #FFFFFF;
 }
 
 .container ul {
@@ -57,7 +55,7 @@ a:hover {
   list-style-type: none;
   display: inline-block;
   padding-top: 10px;
-  padding-left: 0.5em;
+  padding-left: 5px;
 }
 
 .nav a {
@@ -170,7 +168,7 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .imgframe {
-   border: 1px solid #421A00;#
+   border: 1px solid #421A00;
 }
 
 .alert-box.success, .alert-box.warning {
