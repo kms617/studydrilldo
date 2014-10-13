@@ -18,7 +18,7 @@ class GoalsController < ApplicationController
       redirect_to @goal
       flash[:notice] = "Your goal has successfully been set!"
     else
-      flash[:notice] = "There was a problem, please try again."
+      flash[:alert] = "There was a problem, please try again."
       render :new
     end
   end

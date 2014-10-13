@@ -12,19 +12,20 @@
 <ul>
   <% @user_goals.each do |goal| %>
     <% if goal.secret %>
-     <%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
+     <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
       <% if !goal.completed %>
         <div class="ongoing-line">Ongoing</div>
       <% else %>
         Completed
       <% end %><div class="private-line">Private</div></li>
+    <% else %>
+      <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
+        <% if !goal.completed %>
+          <div class="ongoing-line">Ongoing</div>
+        <% else %>
+          Completed
+        <% end %></li>
     <% end %>
-  <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
-      <% if !goal.completed %>
-        <div class="ongoing-line">Ongoing</div>
-      <% else %>
-        Completed
-      <% end %></li>
   <% end %>
 </ul>
 </div>
