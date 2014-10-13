@@ -8,7 +8,7 @@
 </div>
 
 <div class = "mygoals">
-<h1>My Goals</h1><br>
+<h1>My Goals</h1>
 <ul>
   <% @user_goals.each do |goal| %>
     <% if goal.secret %>
@@ -28,4 +28,5 @@
     <% end %>
   <% end %>
 </ul>
+<p><%= link_to "Set a New Goal", new_goal_path %></p>
 </div>

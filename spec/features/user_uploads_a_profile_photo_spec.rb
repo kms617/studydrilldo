@@ -11,7 +11,7 @@ feature 'user submits profile photo' do
   end
 
   scenario 'user adds a profile photo to an existing account then views the photo on their account' do
-    visit 'users/edit'
+    visit edit_user_registration_path
 
     fill_in "Current password", with: "12345678"
     attach_file "user_profile_photo", sample_photo

@@ -5,7 +5,7 @@ FactoryGirl.define do
     sequence(:first_name) { |n| "Fakey#{n}"}
     sequence(:last_name) { |n| "McFakerson#{n}"}
     password "12345678"
-    # confirmed_at Time.now
+    confirmed_at Time.now
   end
 
   factory :goal do

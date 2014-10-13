@@ -15,6 +15,7 @@ feature 'user sign up', %Q{
 
   scenario 'specifying valid and required information' do
     user = FactoryGirl.build(:user)
+    ActionMailer::Base.deliveries = []
     visit root_path
 
     click_link "Sign Up"
@@ -27,8 +28,8 @@ feature 'user sign up', %Q{
     fill_in "user_password_confirmation", with: user.password
     click_button "Sign up"
 
-    expect(page).to have_content("You have signed up successfully.")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario 'required information is not specified' do
