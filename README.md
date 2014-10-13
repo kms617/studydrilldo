@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/kms617/toy.svg?branch=master)](https://travis-ci.org/kms617/toy)[![Coverage Status](https://coveralls.io/repos/kms617/toy/badge.png)](https://coveralls.io/r/kms617/toy)
+[![Build Status](https://travis-ci.org/kms617/toy.svg?branch=master)](https://travis-ci.org/kms617/toy) [![Coverage Status](https://coveralls.io/repos/kms617/toy/badge.png)](https://coveralls.io/r/kms617/toy)
+
 ==README
 
 ER Diagram (10/10/2014)
