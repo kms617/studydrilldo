@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StuDDo</title>
+  <title>study.drill.do</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Neucha|Reenie+Beanie|Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic|Lora:400,700,400italic' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
 
-<!-- <div class="show-for-medium-down tiny-nav">
-
-  <h1>StuDDo</h1>
-
-    <ul class="center">
-        <li>
-          <%= link_to 'MyGoals', goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Set a Goal', new_goal_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Take Steps', goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'About', about_index_path, class: 'button radius' %>
-        </li>
-    </ul>
-</div>!-->
-
-<div class="container">
-  <div class="show-for-large-up nav">
-
-    <%= link_to "Home", root_path %>
+<div class="nav">
+  <div class="logo">
+    <a href="/">study.drill.do</a>
+  </div>
+  <ul>
+    <li>
+      <%= link_to "Goals", goals_path, class: 'button radius' %>
+    </li>
+    <li>
+      <%= link_to 'Set a Goal', new_goal_path, class: 'button radius' %>
+    </li>
 
     <% if user_signed_in? %>
       <li>
@@ -48,29 +37,19 @@
       </li>
     <% end %>
 
-
-    <ul class="right">
-        <li>
-          <%= link_to "Everybody's Goals", goals_path, class: 'button radius' %>
-        </li>
-        <li>
-          <%= link_to 'Set a Goal', new_goal_path, class: 'button radius' %>
-        </li>
-
+    <% if user_signed_in? && current_user.admin? %>
       <li>
-       <% if user_signed_in? && current_user.admin? %>
-      <%= link_to 'Admin', admin_users_path, class: 'button radius' %>
-      <% end %>
+        <%= link_to 'Admin', admin_users_path, class: 'button radius' %>
       </li>
+    <% end %>
 
-        <li>
-          <%= link_to 'About', about_index_path, class: 'button radius' %>
-        </li>
-    </ul>
-  </div>
+    <li>
+      <%= link_to 'About', about_index_path, class: 'button radius' %>
+    </li>
+  </ul>
 </div>
 
-<div class="container">
+<div class="clear-container">
   <% if !notice.nil? %><p class="alert-box radius success"><%= notice %></p><% end %>
   <% if !alert.nil? %><p class="alert-box radius warning"><%= alert %></p><% end %>
 </div>

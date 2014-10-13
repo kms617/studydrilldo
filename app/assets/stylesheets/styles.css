@@ -1,15 +1,315 @@
+body {
+  font-family: 'Lora', serif;
+  color: #421A00;
+  font-size: 16px;
+  margin-top: 10px;
+  background-image: url('../images/30-brown-corkboard-background-sml.jpg');
+  background-repeat: repeat-xy;
+}
+
+.container {
+  max-width: 1000px;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 10 10 10 10;
+  background-color: #FFFFFF;
+  border: solid 10px #FFFFFF;
+}
+
+.container ul {
+  list-style: none;
+  padding: 10 10 10 10;
+  margin: 0px;
+  line-height: 15px;
+}
+
+h1, h2 {
+  font-family: 'Lato', sans-serif;
+  text-decoration: bold;
+  color: #421A00;
+}
+
+h3 {
+  font-style: bold, italic;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  color: #421A00;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #FF8E42;
+}
+
 .nav {
-  padding-bottom: 0.5em;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 .nav ul, .nav li{
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
   list-style-type: none;
   display: inline-block;
-  padding-top: 15px;
-  padding-left: 0.5em;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.logo, .logo a{
+  background-color: #FF8E42;
+  font-family: Neucha, cursive;
+  font-size: 48px;
+  text-align: center;
+  display: inline-block;
+  padding: 5px;
+  color: rgb(66, 26, 0);
+}
+
+.logo:hover, .logo a:hover{
+  background-color: #EA9758;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  border-radius: 4px;
+  border-color: #ccc;
+  border: 1px solid;
+  border-color: #ccc;
+  padding: 5px;
+}
+
+input[type="file"] {
+  font-size: 0.7em;
+}
+
+textarea {
+  height: 10em;
+  border-radius: 4px;
+}
+
+button, .button {
+  font-family: 'Lato', sans-serif;
+  background-color: #42ADFF;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+button:hover, .button:hover, button:active, .button:hover {
+  background-color: #EA9758;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.private-flag {
+  background-color: #421A00;
+  width: 100px;
+  padding: 8px 12px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
+}
+
+.private-line {
+  background-color: #421A00;
+  width: 70px;
+  padding: 4px 2px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
+}
+
+.ongoing-flag {
+  background-color: #FF8E42;
+  width: 100px;
+  padding: 8px 12px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
+}
+.completed-flag {
+  background-color: #00487F;
+  width: 100px;
+  padding: 8px 12px;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.ongoing-line {
+  background-color: #FF8E42;
+  width: 70px;
+  padding: 4px 2px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  line-height: 100%;
 }
 
 #profile_photo {
   max-width: 200px;
   max-height: 300px;
+}
+
+.imgframe {
+   border: 1px solid #421A00;
+}
+
+.alert-box.success, .alert-box.warning {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 0.2em 0.7em;
+  font-size: 1em;
+}
+
+.alert-box.success {
+  background-color: #EA9758;
+  font-color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+}
+
+.alert-box.warning {
+  background-color: #41ABFC;
+  font-color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+}
+
+.login {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.user-thumb img {
+  vertical-align: text-top;
+  float:left;
+  margin-right: 10px;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.user_info {
+  background-color: #FFFFFF;
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  float: left;
+  padding: 25px;
+}
+
+.mygoals {
+  background-color: #FFFFFF;
+  display: inline-block;
+  position: relative;
+  margin: 1%;
+  float: left;
+  padding: 10px;
+  line-height: 30px;
+}
+
+.mygoals, li {
+  line-height: 30px;
+}
+
+.about_index {
+  max-width: 1000px;
+  position: relative;
+  margin: 1%;
+  float: left;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+}
+.about_index, img {
+  width: 150;
+  height: 150px;
+  border: 3px solid #FFFFFF;
+}
+
+input[type=text],
+input[type=password], {
+    width: 50%;
+    margin-top: 5px;
+    height: 25px;
+}
+
+input[type="text"],
+text {
+    width: 40%;
+    margin-top: 5px;
+    height: 25px;
+}
+
+input[type="textarea"],
+textarea {
+  width: 50%;
+  margin-top: 5px;
+  height: 75px;
+}
+
+
+input {
+    box-sizing: border-box;
+}
+
+.form-inputs, input[type=text],
+input[type=password],
+input[type=email],
+input[type=password_confirmation] {
+    width: 100%;
+    height: 25px;
+}
+
+input[type=text],
+input[type=password], {
+    width: 50%;
+    height: 25px;
+}
+
+input[type="text"],
+text {
+    width: 40%;
+    height: 25px;
+}
+
+input[type="textarea"],
+textarea {
+  width: 50%;
+  height: 75px;
+}
+
+
+input {
+    box-sizing: border-box;
+}
+
+.form-inputs, input[type=text],
+input[type=password],
+input[type=email],
+input[type=password_confirmation] {
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    height: 25px;
+    display: inline-block;
 }

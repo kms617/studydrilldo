@@ -1,14 +1,20 @@
-<p>my goal:</p>
-<h1><%= @goal.name %></h1>
-<% if @goal.secret %>
-  <p>Private Goal</p>
-<% end %>
-<p><%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %></p>
+<div class="container">
+<span><h1><%= @goal.name %></h1>
+  <% if @goal.secret %>
+    <div class="private-flag">Private Goal</div>
+  <% end %>
+  <% if !@goal.completed %>
+    <div class="ongoing-flag">Ongoing</div>
+    <% else %>
+    <div class="completed-flag">Completed</div>
+  <% end %>
+  <%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %>
+</span>
+
+
 <ul>
-  <li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%></li><br>
+  <br><li>Date Set: <%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%></li><br>
   <li>Duration: <%= @goal.duration %> minutes </li><br>
-  <li><% if @goal.completed == false %> Ongoing
-      <% else %> Completed <% end %></li><br>
   <li>Objective <br>
       <%= @goal.objective %></li><br>
 </ul>
@@ -18,13 +24,15 @@
   <ul>
     <% @goal.tasks.each do |task| %>
       <li>
-        <%= link_to task.focus, task_path(task) %> | <%= task.methodology.name %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %P') %>
         <% if task.secret %>
-         <p>Private Step</p>
-        <% end %>
+         <div class="private-bullet">PS</div><%= link_to task.focus, task_path(task) %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %P') %>
+        <% else %>
+          <%= link_to task.focus, task_path(task) %> |  <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %P') %>
+        <% end%>
       </li>
       <% end %>
   </ul>
 <% else %>
   <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
 <% end %>
+</div>
