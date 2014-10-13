@@ -47,7 +47,7 @@ feature 'user submits a new step' do
 
     expect(page).to have_content("Step successfully taken!")
     expect(page).to have_content(task.focus)
-    expect(page).to have_content("PS")
+    expect(page).to have_content("P")
   end
 
 

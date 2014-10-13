@@ -13,7 +13,7 @@
 
 <strong>Date Set: </strong><%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%><br>
 <strong>Duration: </strong><%= @goal.duration %> minutes <br>
-  <% if @goal.objective && !@goal.objective == "" %>
+  <% if @goal.objective %>
   <strong> Objective </strong><br>
       <%= @goal.objective %></li><% end %><br>
 </ul>

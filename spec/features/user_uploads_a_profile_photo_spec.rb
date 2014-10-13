@@ -20,7 +20,6 @@ feature 'user submits profile photo' do
     expect(page).to have_content("Your account has been updated successfully.")
 
     visit user_path(@user)
-save_and_open_page
     expect(page).to have_css("img[alt=\"Tinybean\"]")
 
   end
