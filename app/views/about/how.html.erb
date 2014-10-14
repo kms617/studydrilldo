@@ -1,10 +1,60 @@
 <div class="about-container">
 <h1>How it Works</h1>
-<hl>
-<p><strong>study.drill.do</strong> is a learning and productivity tool with two main features:<p>
-<ul>
-<li>It integrates a common foreign language lesson-planning methodology to optimize study by checking how you study (the allocation of the different tasks you use to study) against an ideal allocation for optimized learning.</li>
-<li>It helps you discover your learning style by tracking the types of activities you use to study and keeping track of how well you retain material from them.</li>
-</ul>
-<p><strong>study.drill.do</strong> is being developed as a breakable toy (final project) for <a href="http://www.launchacademy.com">Launch Academy</a> by <a href="http://www.krysiacodes.com">Kristin Smith</a>, a former foreign language and ESL teacher.</p>
-</div>
+<h2>The Methods</h2>
+<p>Every task you perform as a step towards achieveing your learning goal can be classified as one of three basic methods: study, drill or do.  Optimizing your learning depends on getting the right balance between those types of tasks. It can be tricky at first to recognize if a task is a study, drill or do task. Here are some tips.</p>
+<h3>Study</h3>
+<p><strong>Studying</strong> is when you encounter the information for the first time and are mostly passive. It could be reading about the first conditional in a grammar book, watching a video about how to paint a landscape or listening to a lecture on what Ruby hashes and arrays are good for.</p>
+<h3>Drill</h3>
+<p><strong>Drilling</strong> is when you're first trying things out. Think of grammar exercises that are fill-in-the-blank or error-correction based, paint-by-number, or Ruby Monk exercises. The key to drills is that there is a clear right or wrong answer and usually an answer key.</p>
+<h3>Do</h3>
+<p><strong>Doing</strong> is all about trying the new skill out, but in a controlled environment. This is where having a teacher or more experienced person around to correct you can really pay off, because there isn't always a clear right or wrong answer. There are many different and correct ways to approach writing an essay using the first conditional, building a birdhouse from scratch and working on a coding challenge. Trial and error pays off here, and this is where you can transition to being able to use your new skill confidently and accurately.</p>
+<h2>The Model</h2>
+<p>To optimize your learning, aim for:</p>
+  <ul>
+    <li>Study: 10-15% of a session</li>
+    <li>Drill: 25-30% of a session</li>
+    <li>Do: 55-65% of a session</li>
+  </ul>
+<p>Be sure to take time to reflect at the end of each session, as well.</p>
+
+<h2>The Sessions</h2>
+<p><strong>study.drill.do</strong> treats your goal as a single session, so feel free to spread your learning actions out over time. So, for example, for a 10 hour session might look like this:</p>
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Method</th>
+    <th>Time</th>
+  </tr>
+  <tr>
+    <td>Monday</td>
+    <td>Study</td>
+    <td>1 hr</td>
+  </tr>
+  <tr>
+    <td>Tuesday</td>
+    <td>Drill</td>
+    <td>1.5 hr</td>
+  </tr>
+  <tr>
+    <td>Wednesday</td>
+    <td>Drill</td>
+    <td>1 hr</td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td>Do</td>
+    <td>1.5 hr</td>
+  </tr>
+  <tr>
+    <td>Friday</td>
+    <td>Do</td>
+    <td>2 hr</td>
+  </tr>
+  <tr>
+    <td>Saturday</td>
+    <td>Do</td>
+    <td>3 hr</td>
+  </tr>
+</table>
+<p>Even though the learning is over several days, the basic schedule of study 10% - drill 25% - do 65% remains the same. Try out different schedules and see what works best for you.</p>
+<p><%= link_to 'Sign Up', new_user_registration_path, class: 'button radius' %> <%= link_to "Set a Goal", new_goal_path, class: 'button radius' %></p>
