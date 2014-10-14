@@ -7,13 +7,11 @@ CarrierWave.configure do |config|
       provider: 'AWS',
       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'] || "",
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] || "",
-      region: 'us-east-1'
-      #host: 's3-website-us-east-1.amazonaws.com',
+      host: 's3.amazonaws.com'
       #endpoint: 'https://study.drill.do-production.s3-website-us-east-1.amazonaws.com'
     }
 
     config.fog_directory = ENV['S3_BUCKET']
-    config.fog_host = "https://study.drill.do-production.s3-website-us-east-1.amazonaws.com/#{ENV['S3_BUCKET']}"
     config.fog_public = true
     config.storage = :fog
   end
