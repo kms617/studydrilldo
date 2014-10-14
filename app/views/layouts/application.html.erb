@@ -2,10 +2,9 @@
 <html>
 <head>
   <title>study.drill.do</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true  %>
   <link rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Neucha|Reenie+Beanie|Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic|Lora:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Lora|Neucha' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
@@ -22,7 +21,7 @@
     </li>
   <% if user_signed_in? %>
       <li>
-      <%= link_to 'My Goals', user_path(current_user), class: 'button radius' %>
+      <%= link_to 'Me & My Goals', user_path(current_user), class: 'button radius' %>
       </li>
   <% end %>
     <li>
