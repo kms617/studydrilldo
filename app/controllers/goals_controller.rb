@@ -26,6 +26,7 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.includes(:user, :tasks).find(params[:id])
     @user_image = @goal.user.profile_photo.thumb
+    @user = @goal.user
     @task = Task.new
   end
 

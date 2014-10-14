@@ -14,9 +14,8 @@ feature 'admin can see a list of users' do
 
   scenario 'unauthorized users are redirected' do
     sign_in_as(member)
-    visit admin_users_path
 
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect { visit admin_users_path }.to raise_error(ActionController::RoutingError)
   end
 
 end

@@ -17,11 +17,21 @@ body {
   border-radius: 5px;
 }
 
-.container ul {
+.container ul, li {
   list-style: none;
   padding: 10 10 10 10;
   margin: 0px;
   line-height: 15px;
+}
+
+.about-container {
+  margin-left: 20px;
+}
+
+.about-container ul, li {
+  list-style: none;
+  padding: 10 10 10 10;
+  margin: 0px;
 }
 
 h1, h2 {
@@ -195,8 +205,6 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 #profile_photo {
-  max-width: 200px;
-  max-height: 300px;
   border-radius: 15%;
 }
 
@@ -238,21 +246,15 @@ button:hover, .button:hover, button:active, .button:hover {
 
 .user_info {
   background-color: #FFFFFF;
-  display: inline-block;
-  position: relative;
-  margin: 1%;
   float: left;
   padding: 25px;
 }
 
 .mygoals {
   background-color: #FFFFFF;
-  display: inline-block;
-  position: relative;
-  margin: 1%;
-  float: left;
   padding: 10px;
   line-height: 30px;
+  margin-left: 220px;
 }
 
 .mygoals, li {

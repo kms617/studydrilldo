@@ -1,32 +1,32 @@
-<div class="user_info">
-<h2><%= @user.username %></h2>
-<div id="profile_photo"><p><%= image_tag(@user.profile_photo, height: '300', width: '200')%></p></div>
-<p><%= @user.first_name %> <%= @user.last_name %></p>
-<p>Member since <%= @user.created_at.strftime('%b %d, %Y') %></p>
-<p><%= @user.goals.count%> goals to date.</p>
-<% if @user == current_user %><%= link_to 'Edit My Profile', edit_user_registration_path %><% end %>
-</div>
+  <div class="user_info">
+  <h2><%= @user.username %></h2>
+  <div id="profile_photo"><p><%= image_tag(@user.profile_photo)%></p></div>
+  <p><%= @user.first_name %> <%= @user.last_name %></p>
+  <p>Member since <%= @user.created_at.strftime('%b %d, %Y') %></p>
+  <p><%= @user.goals.count%> goals to date.</p>
+  <% if @user == current_user %><%= link_to 'Edit My Profile', edit_user_registration_path %><% end %>
+  </div>
 
-<div class = "mygoals">
-<h1>My Goals</h1>
-<ul>
-  <% @user_goals.each do |goal| %>
-    <% if goal.secret %>
-     <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
-      <% if !goal.completed %>
-        <div class="ongoing-line">Ongoing</div>
-      <% else %>
-        Completed
-      <% end %><div class="private-line">Private</div></li>
-    <% else %>
-      <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
+  <div class = "mygoals">
+  <h1>My Goals</h1>
+  <ul>
+    <% @user_goals.each do |goal| %>
+      <% if goal.secret %>
+       <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
         <% if !goal.completed %>
           <div class="ongoing-line">Ongoing</div>
         <% else %>
           Completed
-        <% end %></li>
+        <% end %><div class="private-line">Private</div></li>
+      <% else %>
+        <li><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %p')%> |
+          <% if !goal.completed %>
+            <div class="ongoing-line">Ongoing</div>
+          <% else %>
+            Completed
+          <% end %></li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-<p><%= link_to "Set a New Goal", new_goal_path %></p>
-</div>
+  </ul>
+  <p><%= link_to "Set a New Goal", new_goal_path %></p>
+  </div>

@@ -8,7 +8,8 @@
     <% else %>
     <div class="completed-flag">Completed</div>
   <% end %>
-  <%= link_to "Revise", edit_goal_path(@goal) %> | <%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %><br><br>
+  <% if @user == current_user %>
+  <%= link_to "Revise", edit_user_goal_path(@user, @goal) %> | <%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %><% end %><br><br>
 </span>
 
 <strong>Date Set: </strong><%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%><br>
