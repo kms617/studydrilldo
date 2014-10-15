@@ -1,22 +1,23 @@
-<%= @task.focus %>
-<% if @task.secret %>
-  <p>Private Task</p>
-<% end %>
-<% if @task.action %><%= @task.action %><% else %><%= @task.action_url %><% end %>
+<h3>Task</h3>
+<h2><%= @task.focus %></h2>
+<%= link_to "Revise", edit_task_path(@task) %> | <%= link_to 'Delete', @task, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this task?' } %></p>
+  <% if @task.secret %>
+    <p>Private Task</p>
+  <% end %>
 <ul>
   <li>
-    Goal: <%= @task.goal.name %>
+    <strong>Action: </strong><% if @task.action %><%= @task.action %><% else %><%= @task.action_url %><% end %>
   </li>
   <li>
-    Taken on: <%= @task.created_at.strftime('%A, %b %d, %Y %l:%M %P')%> | Duration <%= @task.duration %> minutes | <% if @task.completed == false %>Ongoing
+    <strong>Goal: </strong><%= @task.goal.name %>
+  </li>
+  <li>
+    <strong>Taken on: </strong><%= @task.created_at.strftime('%A, %b %d, %Y %l:%M %P')%> | Duration <%= @task.duration %> minutes | <%= @task.methodology.name.capitalize %> | <% if @task.completed == false %>Ongoing
       <% else %>Completed<% end %>
   </li>
   <li>
-    <%= @task.methodology.name %>
+    <strong>Description: </strong><%= @task.description %>
   </li>
-  <li>
-    Description:<br><%= @task.description %>
-  </li>
-</ul>
+</ul><br>
 <%= link_to "Back to the Goal", goal_path(@task.goal_id) %>
-<%= link_to "Revise", edit_task_path(@task) %> | <%= link_to 'Delete', @task, class: 'button radius', method: :delete, data: { confirm: 'Are you sure you want to delete this task?' } %></p>
+

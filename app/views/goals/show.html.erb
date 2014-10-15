@@ -1,4 +1,5 @@
-<div class="container">
+<h3>Goal</h3>
+<div class="box1"
 <span><h1><%= @goal.name %></h1>
   <% if @goal.secret %>
     <div class="private-flag">Private Goal</div>
@@ -20,7 +21,7 @@
 </ul>
 
 <% if !@goal.tasks.empty? %>
-  <h2>Steps towards your goal</h2><p><%= link_to "Take a Step", new_goal_task_path(@goal) %></p>
+  <h2>Steps towards this goal</h2><p><%= link_to "Take a Step", new_goal_task_path(@goal) %></p>
   <ul>
     <% @goal.tasks.each do |task| %>
       <li>
@@ -36,3 +37,9 @@
   <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
 <% end %>
 </div>
+
+<div class="box2">
+  <div id="profile_photo"><%= link_to image_tag(@goal.user.profile_photo), user_path(@goal.user)%></div>
+    <%= link_to @goal.user.username, user_path(@goal.user) %>
+</div>
+
