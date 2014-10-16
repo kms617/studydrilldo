@@ -19,7 +19,37 @@ class Goal < ActiveRecord::Base
     end
   end
 
-  def self.tot_time
+  def self.ideal_allocation
+    {study: 0.1, drill: 0.25, done: 6.5}
+  end
+
+  def ideal_allocation
+    allocation = {(study_time: duration * Goal.ideal_allocation[:study]),
+                  (drill_time: duration * Goal.ideal_allocation[:drill])
+                  (do_time: duration * Goal.ideal_allocation[:do])
+                  }
+  end
+
+  def actual_allocation(goal)
+    alloc = {study: 0, drill: 0, done: 0}
+
+    goal.tasks.each do |task|
+      if task.methodology.name == "study"
+        study_time += task.duration
+      elsif task.methodology.name == "drill"
+         drill_time += task.duration
+      else
+        do_time += task.duration
+      end
+    end
+    allocation = {(study: study_time * Goal.ideal_allocation[:study]),
+                  (drill: drill_time * Goal.ideal_allocation[:drill])
+                  (done: so_time * Goal.ideal_allocation[:do])
+                  }
+  end
+
+
+  def elapsed_time(goal)
     tot_time = 0
     goal.tasks.each do |task|
         tot_time += task.duration
@@ -27,7 +57,7 @@ class Goal < ActiveRecord::Base
     tot_time
   end
 
-  def self.study_time_calc
+  def study_time_calc(goal)
     study_time = 0
     goal.tasks.each do |task|
       if task.methodology.name == "study"
@@ -37,7 +67,7 @@ class Goal < ActiveRecord::Base
     study_time
   end
 
-  def self.drill_time
+  def drill_time(goal)
     study_time = 0
     goal.tasks.each do |task|
       if task.methodology.name == "drill"
@@ -47,7 +77,7 @@ class Goal < ActiveRecord::Base
     drill_time
   end
 
-  def self.do_time
+  def do_time(goal)
     do_time = 0
     goal.tasks.each do |task|
       if task.methodology.name == "do"
