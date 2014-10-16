@@ -28,7 +28,10 @@ class GoalsController < ApplicationController
     @user_image = @goal.user.profile_photo.thumb
     @user = @goal.user
     @task = Task.new
-    @study_time = @goal.study_time_calc
+    @my_allocation = @goal.actual_allocation
+    @best_allocation = @goal.ideal_allocation
+    @advice = @goal.advice_calc(@best_allocation, @my_allocation)
+
   end
 
   def edit

@@ -20,36 +20,32 @@ class Goal < ActiveRecord::Base
   end
 
   def self.ideal_allocation
-    {study: 0.1, drill: 0.25, done: 6.5}
+    {study: 0.1, drill: 0.25, do: 0.65}
   end
 
   def ideal_allocation
-    allocation = {(study_time: duration * Goal.ideal_allocation[:study]),
-                  (drill_time: duration * Goal.ideal_allocation[:drill])
-                  (do_time: duration * Goal.ideal_allocation[:do])
+    allocation = {study: ((duration * Goal.ideal_allocation[:study]).to_i),
+                  drill: ((duration * Goal.ideal_allocation[:drill]).to_i),
+                  do: ((duration * Goal.ideal_allocation[:do]).to_i)
                   }
   end
 
-  def actual_allocation(goal)
-    alloc = {study: 0, drill: 0, done: 0}
+  def actual_allocation
+    alloc = {study: 0, drill: 0, do: 0}
 
-    goal.tasks.each do |task|
+    tasks.each do |task|
       if task.methodology.name == "study"
-        study_time += task.duration
+        alloc[:study] += task.duration
       elsif task.methodology.name == "drill"
-         drill_time += task.duration
+         alloc[:drill] += task.duration
       else
-        do_time += task.duration
+        alloc[:do] += task.duration
       end
     end
-    allocation = {(study: study_time * Goal.ideal_allocation[:study]),
-                  (drill: drill_time * Goal.ideal_allocation[:drill])
-                  (done: so_time * Goal.ideal_allocation[:do])
-                  }
+    alloc
   end
 
-
-  def elapsed_time(goal)
+  def elapsed_time
     tot_time = 0
     goal.tasks.each do |task|
         tot_time += task.duration
@@ -57,34 +53,18 @@ class Goal < ActiveRecord::Base
     tot_time
   end
 
-  def study_time_calc(goal)
-    study_time = 0
-    goal.tasks.each do |task|
-      if task.methodology.name == "study"
-        study_time += task.duration
+  def advice_calc(ideal, actual)
+    advice = []
+
+    ideal.each do |k, v|
+      if v > actual[k]
+        advice << "You didn't #{k} enough."
+      elsif v < actual[k]
+        advice << "You did too much #{k}ing."
+      else
+        advice << "Just right."
       end
     end
-    study_time
+    advice
   end
-
-  def drill_time(goal)
-    study_time = 0
-    goal.tasks.each do |task|
-      if task.methodology.name == "drill"
-        drill_time += task.duration
-      end
-    end
-    drill_time
-  end
-
-  def do_time(goal)
-    do_time = 0
-    goal.tasks.each do |task|
-      if task.methodology.name == "do"
-        do_time += task.duration
-      end
-    end
-    do_time
-  end
-
 end
