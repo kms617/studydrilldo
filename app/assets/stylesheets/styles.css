@@ -8,12 +8,12 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 900px;
   min-height: 500px;
   margin: 0 auto;
-  padding: 10 10 10 10;
+  padding: 10px 30px 30px 30px;
   background-color: #FFFFFF;
-  border: solid 10px #FFFFFF;
+  border: solid 20px #FFFFFF;
   border-radius: 5px;
 }
 
@@ -270,7 +270,23 @@ button:hover, .button:hover, button:active, .button:hover {
   margin-top: 20px;
   background-color: #FFFFFF;
 }
-.about_index, img {
+
+.about-box {
+  display: center;
+}
+
+.about_box1, a {
+  text-align: center;
+  padding-left: 10px;
+}
+
+.about_box2, a {
+  text-align: center;
+  float: center;
+  margin-left: 0 auto;
+}
+
+.about_box, img {
   width: 150;
   height: 150px;
   border: 3px solid #FFFFFF;
@@ -344,4 +360,14 @@ input[type=password_confirmation] {
     margin-left: 5px;
     height: 25px;
     display: inline-block;
+}
+
+.box1 {
+  float: left;
+}
+
+.box2 {
+  padding: 10px;
+  line-height: 30px;
+  margin-left: 700px;
 }
