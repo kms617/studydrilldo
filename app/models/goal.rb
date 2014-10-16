@@ -19,4 +19,42 @@ class Goal < ActiveRecord::Base
     end
   end
 
+  def self.tot_time
+    tot_time = 0
+    goal.tasks.each do |task|
+        tot_time += task.duration
+    end
+    tot_time
+  end
+
+  def self.study_time_calc
+    study_time = 0
+    goal.tasks.each do |task|
+      if task.methodology.name == "study"
+        study_time += task.duration
+      end
+    end
+    study_time
+  end
+
+  def self.drill_time
+    study_time = 0
+    goal.tasks.each do |task|
+      if task.methodology.name == "drill"
+        drill_time += task.duration
+      end
+    end
+    drill_time
+  end
+
+  def self.do_time
+    do_time = 0
+    goal.tasks.each do |task|
+      if task.methodology.name == "do"
+        do_time += task.duration
+      end
+    end
+    do_time
+  end
+
 end

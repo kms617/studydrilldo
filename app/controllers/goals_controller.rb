@@ -28,6 +28,7 @@ class GoalsController < ApplicationController
     @user_image = @goal.user.profile_photo.thumb
     @user = @goal.user
     @task = Task.new
+    @study_time = @goal.study_time_calc
   end
 
   def edit
