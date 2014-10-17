@@ -25,4 +25,12 @@ module ApplicationHelper
     end
   end
 
+  def completed(item)
+    if !item.completed
+      "<div class=\"ongoing-line\">Ongoing</div>".html_safe
+    else
+      "Completed"
+    end
+  end
+
 end
