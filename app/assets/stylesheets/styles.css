@@ -67,8 +67,9 @@ a:hover {
   font-size: 20px;
   list-style-type: none;
   display: inline-block;
-  padding-top: 10px;
+  padding: 10px 0 0 0;
   padding-left: 5px;
+  margin-left: 0;
 }
 
 .nav a {
@@ -82,11 +83,16 @@ a:hover {
   text-align: center;
   display: inline-block;
   padding: 5px;
-  color: rgb(66, 26, 0);
+  color: #421A00;
 }
 
 .logo:hover, .logo a:hover{
   background-color: #EA9758;
+}
+
+.goals_index, ul, li {
+  padding-bottom: 10px;
+  margin-left: 10px;
 }
 
 input[type="text"], textarea {
@@ -236,12 +242,12 @@ button:hover, .button:hover, button:active, .button:hover {
   margin: 0 auto;
 }
 
-.user-thumb img {
+#user-thumb img {
   vertical-align: text-top;
   float:left;
   margin-right: 10px;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 30px;
+  max-height: 30px;
 }
 
 .user_info {
@@ -376,8 +382,8 @@ input[type=password_confirmation] {
 }
 
 .allocation {
-  margin-left: 400px;
-  max-width: 900px;
+  margin-left: 550px;
+  max-width: 1000px;
 }
 
 .pie_charts {
@@ -396,6 +402,12 @@ input[type=password_confirmation] {
 }
 
 #actual_pie {
+  max-width: 400px;
+  margin-left: 450px;
+  position: relative;
+}
+
+#ongoing_pie {
   max-width: 400px;
   margin-left: 450px;
   position: relative;

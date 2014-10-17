@@ -87,35 +87,30 @@
         <th>Method</th>
         <th>Ideal Time</th>
         <th>My Time</th>
-        <th>Recommendation</th>
       </tr>
       <tr>
         <td>Study</td>
         <td><%= @best_allocation[:study] %> minutes </td>
         <td><%= @my_allocation[:study] %> minutes </td>
-        <td><%= @advice[0] %> </td>
       </tr>
       <tr>
         <td>Drill</td>
         <td><%= @best_allocation[:drill] %> minutes </td>
         <td><%= @my_allocation[:drill] %> minutes </td>
-        <td><%= @advice[1] %></td>
       </tr>
       <tr>
         <td>Do</td>
         <td><%= @best_allocation[:do] %> minutes </td>
         <td><%= @my_allocation[:do] %> minutes </td>
-        <td><%= @advice[2] %></td>
       </tr>
     </table>
   </div>
 
-  <div class="pie_charts">
-    <div id ="ideal_pie">
-    </div>
-    <div id ="actual_pie">
+  <div class="pie_charts"
+    <div id ="ongoing_pie">
     </div>
   </div>
+</div>
 
 
 <% end %>

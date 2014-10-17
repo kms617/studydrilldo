@@ -61,6 +61,18 @@ class Goal < ActiveRecord::Base
     ideal_array
   end
 
+  def ongoing_array
+    ongoing_array = []
+    elapsed_time = 0
+    self.actual_allocation.each do |k, v|
+      ongoing_array << [k.to_s, v]
+      elapsed_time += v
+    end
+    t_remaining = (duration  - elapsed_time)
+    ongoing_array << ["time remaining", t_remaining]
+    ongoing_array
+  end
+
   def elapsed_time
     tot_time = 0
     goal.tasks.each do |task|

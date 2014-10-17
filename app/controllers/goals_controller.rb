@@ -32,8 +32,8 @@ class GoalsController < ApplicationController
     @best_allocation = @goal.ideal_allocation
     gon.ideal_pie = @goal.ideal_array
     gon.actual_pie = @goal.actual_array
+    gon.ongoing_pie = @goal.ongoing_array
     @advice = @goal.advice_calc(@best_allocation, @my_allocation)
-
   end
 
   def edit
@@ -75,13 +75,5 @@ class GoalsController < ApplicationController
       raise ActionController::RoutingError.new('Not Found')
     end
   end
-
-  # def done(goal)
-  #   if !goal.completed
-  #     "Ongoing"
-  #   else
-  #     "Completed"
-  #   end
-  # end
 
 end
