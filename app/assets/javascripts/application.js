@@ -62,7 +62,7 @@ $(function () {
             text: 'My Allocation'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
+            pointFormat: '{series.name}: <b>{point.y:.0f} minutes</b>'
         },
         plotOptions: {
             pie: {

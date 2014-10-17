@@ -371,3 +371,29 @@ input[type=password_confirmation] {
   line-height: 30px;
   margin-left: 700px;
 }
+
+.allocation {
+  margin-left: 400px;
+  max-width: 900px;
+}
+
+.pie_charts {
+  max-width: 900px;
+  margin-top: 75px;
+}
+
+#ideal_pie {
+  max-width: 400px;
+}
+
+#highcharts-0 {
+  max-width: 400px;
+  float: left;
+  position: relative;
+}
+
+#actual_pie {
+  max-width: 400px;
+  margin-left: 450px;
+  position: relative;
+}
