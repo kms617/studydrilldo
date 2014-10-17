@@ -4,12 +4,11 @@
 <div class="goals_index"
 <ul>
     <% @goals.each do |goal| %>
-    <li><div id="user-thumb"><%= image_tag(goal.user.profile_photo.thumb) %></div><%= link_to goal.name, goal_path(goal) %> | Set on: <%= goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%> by <%= link_to goal.user.username, user_path(goal.user) %> |
-        <% if !goal.completed %>
-          <div class="ongoing-line">Ongoing</div>
-        <% else %>
-          Completed
-        <% end %>
+      <li><div id="user-thumb"><%= image_tag(goal.user.profile_photo.thumb) %></div>
+      <%= link_to goal.name, goal_path(goal) %> |
+      Set on: <%= format_datetime(goal.created_at)%>
+      by <%= link_to goal.user.username, user_path(goal.user) %> |
+        <%= completed(goal) %>
       <% end %></li>
   </ul>
 </div>
