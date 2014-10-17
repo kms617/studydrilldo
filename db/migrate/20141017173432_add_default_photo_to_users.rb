@@ -4,6 +4,6 @@ class AddDefaultPhotoToUsers < ActiveRecord::Migration
   end
 
   def down
-    change_column :users, :profile_photo, :string,
+    change_column :users, :profile_photo, :string
   end
 end
