@@ -43,38 +43,79 @@
     <%= link_to @goal.user.username, user_path(@goal.user) %>
 </div>
 
-<div class="allocation">
-  <table><h3>study.drill.do assessment</h3>
-    <tr>
-      <th>Method</th>
-      <th>Ideal Time</th>
-      <th>My Time</th>
-      <th>Recommendation</th>
-    </tr>
-    <tr>
-      <td>Study</td>
-      <td><%= @best_allocation[:study] %> minutes </td>
-      <td><%= @my_allocation[:study] %> minutes </td>
-      <td><%= @advice[0] %> </td>
-    </tr>
-    <tr>
-      <td>Drill</td>
-      <td><%= @best_allocation[:drill] %> minutes </td>
-      <td><%= @my_allocation[:drill] %> minutes </td>
-      <td><%= @advice[1] %></td>
-    </tr>
-    <tr>
-      <td>Do</td>
-      <td><%= @best_allocation[:do] %> minutes </td>
-      <td><%= @my_allocation[:do] %> minutes </td>
-      <td><%= @advice[2] %></td>
-    </tr>
-  </table>
-</div>
+<% if @goal.completed %>
+  <div class="allocation">
+    <table><h3>study.drill.do assessment</h3>
+      <tr>
+        <th>Method</th>
+        <th>Ideal Time</th>
+        <th>My Time</th>
+        <th>Recommendation</th>
+      </tr>
+      <tr>
+        <td>Study</td>
+        <td><%= @best_allocation[:study] %> minutes </td>
+        <td><%= @my_allocation[:study] %> minutes </td>
+        <td><%= @advice[0] %> </td>
+      </tr>
+      <tr>
+        <td>Drill</td>
+        <td><%= @best_allocation[:drill] %> minutes </td>
+        <td><%= @my_allocation[:drill] %> minutes </td>
+        <td><%= @advice[1] %></td>
+      </tr>
+      <tr>
+        <td>Do</td>
+        <td><%= @best_allocation[:do] %> minutes </td>
+        <td><%= @my_allocation[:do] %> minutes </td>
+        <td><%= @advice[2] %></td>
+      </tr>
+    </table>
+  </div>
 
-<div class="pie_charts">
-  <div id ="ideal_pie">
+  <div class="pie_charts">
+    <div id ="ideal_pie">
+    </div>
+    <div id ="actual_pie">
+    </div>
   </div>
-  <div id ="actual_pie">
+
+<% else %>
+<div class="allocation">
+    <table><h3>study.drill.do assessment</h3>
+      <tr>
+        <th>Method</th>
+        <th>Ideal Time</th>
+        <th>My Time</th>
+        <th>Recommendation</th>
+      </tr>
+      <tr>
+        <td>Study</td>
+        <td><%= @best_allocation[:study] %> minutes </td>
+        <td><%= @my_allocation[:study] %> minutes </td>
+        <td><%= @advice[0] %> </td>
+      </tr>
+      <tr>
+        <td>Drill</td>
+        <td><%= @best_allocation[:drill] %> minutes </td>
+        <td><%= @my_allocation[:drill] %> minutes </td>
+        <td><%= @advice[1] %></td>
+      </tr>
+      <tr>
+        <td>Do</td>
+        <td><%= @best_allocation[:do] %> minutes </td>
+        <td><%= @my_allocation[:do] %> minutes </td>
+        <td><%= @advice[2] %></td>
+      </tr>
+    </table>
   </div>
-</div>
+
+  <div class="pie_charts">
+    <div id ="ideal_pie">
+    </div>
+    <div id ="actual_pie">
+    </div>
+  </div>
+
+
+<% end %>
