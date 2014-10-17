@@ -33,4 +33,18 @@ module ApplicationHelper
     end
   end
 
+  def completed_flag(item)
+    if !item.completed
+      "<span class=\"ongoing-flag\">Ongoing</span>".html_safe
+    else
+      "<span class=\"completed-flag\">Completed</span>".html_safe
+    end
+  end
+
+  def private(item)
+    if item.secret
+      "<span class=\"private-flag\">Private Goal</span>".html_safe
+    end
+  end
+
 end

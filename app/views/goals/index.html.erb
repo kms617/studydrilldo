@@ -8,7 +8,7 @@
       <%= link_to goal.name, goal_path(goal) %> |
       Set on: <%= format_datetime(goal.created_at)%>
       by <%= link_to goal.user.username, user_path(goal.user) %> |
-        <%= completed(goal) %>
+      <%= completed(goal) %>
       <% end %></li>
   </ul>
 </div>
