@@ -12,16 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require_tree .
 
-$(function () {
-    $('#ideal_pie').highcharts({
+$(document).ready(function() {
+
+    // var ongoing_pie_container = document.createElement('div');
+    // ongoing_pie_container.setAttribute("id", "ongoing_pie");
+    // document.body.appendChild(ongoing_pie_container);
+    // debugger
+
+
+    var ideal_pie_chart = new Highcharts.Chart({
         chart: {
+            renderTo: 'ideal_pie',
             plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
+            plotBorderWidth: 0,//null,
             plotShadow: false
         },
         title: {
@@ -49,13 +56,12 @@ $(function () {
             data: gon.ideal_pie
         }]
     });
-});
 
-$(function () {
-    $('#actual_pie').highcharts({
+    var actual_pie_chart = new Highcharts.Chart({
         chart: {
+            renderTo: 'actual_pie',
             plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
+            plotBorderWidth: 0,//null,
             plotShadow: false
         },
         title: {
@@ -83,13 +89,12 @@ $(function () {
             data: gon.actual_pie
         }]
     });
-});
 
-$(function () {
-    $('#ongoing_pie').highcharts({
+    var ongoing_pie_chart = new Highcharts.Chart({
         chart: {
+            renderTo: 'ongoing_pie',
             plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
+            plotBorderWidth: 0,//null,
             plotShadow: false
         },
         title: {

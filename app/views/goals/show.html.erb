@@ -1,46 +1,47 @@
-<h3>Goal</h3>
-<div class="box1"
-<span><h1><%= @goal.name %></h1>
-  <% if @goal.secret %>
-    <div class="private-flag">Private Goal</div>
-  <% end %>
-  <% if !@goal.completed %>
-    <div class="ongoing-flag">Ongoing</div>
-    <% else %>
-    <div class="completed-flag">Completed</div>
-  <% end %>
-  <% if @user == current_user %>
-  <%= link_to "Revise", edit_user_goal_path(@user, @goal) %> | <%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %><% end %><br><br>
-</span>
+<div class="box2">
+<div id="user-thumb"><%= image_tag(@goal.user.profile_photo.thumb) %><%= link_to @goal.user.username, user_path(@goal.user) %></div>
+<h1>Goal: <%= @goal.name %></h1>
 
-<strong>Date Set: </strong><%= @goal.created_at.strftime('%A, %b %d, %Y %l:%M %P')%><br>
-<strong>Duration: </strong><%= @goal.duration %> minutes <br>
-  <% if @goal.objective %>
-  <strong> Objective </strong><br>
-      <%= @goal.objective %></li><% end %><br>
-</ul>
-
-<% if !@goal.tasks.empty? %>
-  <h2>Steps towards this goal</h2><p><%= link_to "Take a Step", new_goal_task_path(@goal) %></p>
-  <ul>
-    <% @goal.tasks.each do |task| %>
-      <li>
-        <% if task.secret %>
-         <div class="private-bullet">P</div><%= link_to task.focus, task_path(task) %> | <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %P') %>
-        <% else %>
-          <%= link_to task.focus, task_path(task) %> |  <%= task.created_at.strftime('%A, %b %d, %Y %l:%M %P') %>
-        <% end%>
-      </li>
-      <% end %>
+  <span>
+    <% if @goal.secret %>
+      <div class="private-flag">Private Goal</div>
+    <% end %>
+    <% if !@goal.completed %>
+      <div class="ongoing-flag">Ongoing</div>
+      <% else %>
+      <div class="completed-flag">Completed</div>
+    <% end %>
+    <% if @user == current_user %>
+    <%= link_to "Revise", edit_user_goal_path(@user, @goal) %> | <%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %><% end %><br><br>
+  </span>
+  <strong>Date Set: </strong><%= format_datetime(@goal.created_at)%><br>
+  <strong>Duration: </strong><%= format_duration(@goal.duration)%><br>
+    <% if @goal.objective %>
+    <strong> Objective </strong><br>
+        <%= @goal.objective %></li><% end %><br>
   </ul>
-<% elsif @user == current_user %>
-  <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
-<% end %>
 </div>
 
-<div class="box2">
-  <div id="profile_photo"><%= link_to image_tag(@goal.user.profile_photo), user_path(@goal.user)%></div>
-    <%= link_to @goal.user.username, user_path(@goal.user) %>
+<div class="box3">
+  <% if !@goal.tasks.empty? %>
+    <h2>Steps towards this goal</h2>
+    <% if @goal.user == current_user %>
+      <%= link_to "Take a Step", new_goal_task_path(@goal) %>
+    <% end %>
+    <ul>
+      <% @goal.tasks.each do |task| %>
+        <li>
+          <% if task.secret %>
+           <div class="private-bullet">P</div><%= link_to task.focus, task_path(task) %> | <%= format_datetime(task.created_at)%>
+          <% else %>
+            <%= link_to task.focus, task_path(task) %> |  <%= format_datetime(task.created_at)%>
+          <% end%>
+        </li>
+        <% end %>
+    </ul>
+  <% elsif @goal.user == current_user %>
+    <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
+  <% end %>
 </div>
 
 <% if @goal.completed %>
@@ -74,43 +75,37 @@
   </div>
 
   <div class="pie_charts">
-    <div id ="ideal_pie">
-    </div>
-    <div id ="actual_pie">
-    </div>
+    <div id="ideal_pie"></div>
+    <div id="actual_pie"></div>
   </div>
 
 <% else %>
-<div class="allocation">
-    <table><h3>study.drill.do assessment</h3>
-      <tr>
-        <th>Method</th>
-        <th>Ideal Time</th>
-        <th>My Time</th>
-      </tr>
-      <tr>
-        <td>Study</td>
-        <td><%= @best_allocation[:study] %> minutes </td>
-        <td><%= @my_allocation[:study] %> minutes </td>
-      </tr>
-      <tr>
-        <td>Drill</td>
-        <td><%= @best_allocation[:drill] %> minutes </td>
-        <td><%= @my_allocation[:drill] %> minutes </td>
-      </tr>
-      <tr>
-        <td>Do</td>
-        <td><%= @best_allocation[:do] %> minutes </td>
-        <td><%= @my_allocation[:do] %> minutes </td>
-      </tr>
-    </table>
+      <table><h3>study.drill.do assessment</h3>
+        <tr>
+          <th>Method</th>
+          <th>Ideal Time</th>
+          <th>My Time</th>
+        </tr>
+        <tr>
+          <td>Study</td>
+          <td><%= @best_allocation[:study] %> minutes </td>
+          <td><%= @my_allocation[:study] %> minutes </td>
+        </tr>
+        <tr>
+          <td>Drill</td>
+          <td><%= @best_allocation[:drill] %> minutes </td>
+          <td><%= @my_allocation[:drill] %> minutes </td>
+        </tr>
+        <tr>
+          <td>Do</td>
+          <td><%= @best_allocation[:do] %> minutes </td>
+          <td><%= @my_allocation[:do] %> minutes </td>
+        </tr>
+      </table>
   </div>
 
-  <div class="pie_charts"
-    <div id ="ongoing_pie">
-    </div>
+  <div class="pie_charts">
+    <div id="ongoing_pie"></div>
   </div>
-</div>
-
 
 <% end %>
