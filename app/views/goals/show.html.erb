@@ -2,24 +2,25 @@
 <div id="user-thumb"><%= image_tag(@goal.user.profile_photo.thumb) %><%= link_to @goal.user.username, user_path(@goal.user) %></div>
 <h1>Goal: <%= @goal.name %></h1>
 
-  <span>
+  <div>
     <% if @goal.secret %>
-      <div class="private-flag">Private Goal</div>
+      <span class="private-flag">Private Goal</span>
     <% end %>
     <% if !@goal.completed %>
-      <div class="ongoing-flag">Ongoing</div>
+      <span class="ongoing-flag">Ongoing</span>
       <% else %>
-      <div class="completed-flag">Completed</div>
+      <span class="completed-flag">Completed</span>
     <% end %>
     <% if @user == current_user %>
     <%= link_to "Revise", edit_user_goal_path(@user, @goal) %> | <%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you want to delete this goal?' } %><% end %><br><br>
-  </span>
+  </div>
   <strong>Date Set: </strong><%= format_datetime(@goal.created_at)%><br>
   <strong>Duration: </strong><%= format_duration(@goal.duration)%><br>
-    <% if @goal.objective %>
+  <% if @goal.objective %>
     <strong> Objective </strong><br>
-        <%= @goal.objective %></li><% end %><br>
-  </ul>
+    <%= @goal.objective %>
+  <% end %>
+  <br>
 </div>
 
 <div class="box3">
@@ -46,7 +47,8 @@
 
 <% if @goal.completed %>
   <div class="allocation">
-    <table><h3>study.drill.do assessment</h3>
+  <h3>study.drill.do assessment</h3>
+    <table>
       <tr>
         <th>Method</th>
         <th>Ideal Time</th>
@@ -80,32 +82,33 @@
   </div>
 
 <% else %>
-      <table><h3>study.drill.do assessment</h3>
-        <tr>
-          <th>Method</th>
-          <th>Ideal Time</th>
-          <th>My Time</th>
-        </tr>
-        <tr>
-          <td>Study</td>
-          <td><%= @best_allocation[:study] %> minutes </td>
-          <td><%= @my_allocation[:study] %> minutes </td>
-        </tr>
-        <tr>
-          <td>Drill</td>
-          <td><%= @best_allocation[:drill] %> minutes </td>
-          <td><%= @my_allocation[:drill] %> minutes </td>
-        </tr>
-        <tr>
-          <td>Do</td>
-          <td><%= @best_allocation[:do] %> minutes </td>
-          <td><%= @my_allocation[:do] %> minutes </td>
-        </tr>
-      </table>
-  </div>
+<div class="ongoing_container">
+  <h3>study.drill.do assessment</h3>
+  <table>
+    <tr>
+      <th>Method</th>
+      <th>Ideal Time</th>
+      <th>My Time</th>
+    </tr>
+    <tr>
+      <td>Study</td>
+      <td><%= @best_allocation[:study] %> minutes </td>
+      <td><%= @my_allocation[:study] %> minutes </td>
+    </tr>
+    <tr>
+      <td>Drill</td>
+      <td><%= @best_allocation[:drill] %> minutes </td>
+      <td><%= @my_allocation[:drill] %> minutes </td>
+    </tr>
+    <tr>
+      <td>Do</td>
+      <td><%= @best_allocation[:do] %> minutes </td>
+      <td><%= @my_allocation[:do] %> minutes </td>
+    </tr>
+  </table>
 
   <div class="pie_charts">
     <div id="ongoing_pie"></div>
   </div>
-
+</div>
 <% end %>

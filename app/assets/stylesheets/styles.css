@@ -363,7 +363,7 @@ input {
 input[type=password],
 input[type=email],
 input[type=password_confirmation] {
-    width: 90%;
+    width: 70%;
     margin-top: 5px;
     margin-bottom: 10px;
     margin-left: 5px;
@@ -371,12 +371,24 @@ input[type=password_confirmation] {
     display: inline-block;
 }
 
-.box2 {
-  display: inline-block;
+#goal_duration {
+  max-width: 50px;
 }
 
-.box3 {
-  display: ;
+#task_duration {
+  max-width: 50px;
+}
+
+#task_action {
+  max-width: 200 px;
+}
+
+#task_action_url {
+  max-width: 200 px;
+}
+
+.box2 {
+  display: inline-block;
 }
 
 .allocation {
@@ -407,11 +419,9 @@ input[type=password_confirmation] {
   position: relative;
 }
 
-/*#ongoing_pie {
+#ongoing_pie {
   max-width: 400px;
-  margin-left: 450px;
-  position: relative;
-}*/
+}
 
 th, td {
   text-align: left;
