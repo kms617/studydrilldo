@@ -397,3 +397,18 @@ input[type=password_confirmation] {
   margin-left: 450px;
   position: relative;
 }
+
+th, td {
+  text-align: left;
+  border: 1px solid #421A00;
+}
+
+td {
+  padding: 5px;
+}
+
+th {
+  background-color: #EA9758;
+  color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+}
