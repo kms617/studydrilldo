@@ -45,6 +45,22 @@ class Goal < ActiveRecord::Base
     alloc
   end
 
+  def actual_array
+    actual_array = []
+    self.actual_allocation.each do |k, v|
+      actual_array << [k.to_s, v]
+    end
+    actual_array
+  end
+
+  def ideal_array
+    ideal_array = []
+    self.ideal_allocation.each do |k, v|
+      ideal_array << [k.to_s, v]
+    end
+    ideal_array
+  end
+
   def elapsed_time
     tot_time = 0
     goal.tasks.each do |task|
@@ -66,5 +82,9 @@ class Goal < ActiveRecord::Base
       end
     end
     advice
+  end
+
+  def editable_by?(user)
+    self == user || user.admin?
   end
 end

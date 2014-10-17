@@ -30,6 +30,8 @@ class GoalsController < ApplicationController
     @task = Task.new
     @my_allocation = @goal.actual_allocation
     @best_allocation = @goal.ideal_allocation
+    gon.ideal_pie = @goal.ideal_array
+    gon.actual_pie = @goal.actual_array
     @advice = @goal.advice_calc(@best_allocation, @my_allocation)
 
   end

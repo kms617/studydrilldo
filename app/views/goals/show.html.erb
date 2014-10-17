@@ -33,7 +33,7 @@
       </li>
       <% end %>
   </ul>
-<% else %>
+<% elsif @user == current_user %>
   <p>Get started towards this goal by <%= link_to "adding a task", new_goal_task_path(@goal) %>. </p>
 <% end %>
 </div>
@@ -69,3 +69,12 @@
       <td><%= @my_allocation[:do] %> minutes </td>
       <td><%= @advice[2] %></td>
     </tr>
+  </table>
+  </div>
+
+  <div class="pie_container">
+    <div id ="ideal_pie">
+    </div>
+    <div id ="actual_pie">
+    </div>
+  </div>
