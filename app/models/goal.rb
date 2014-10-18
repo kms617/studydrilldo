@@ -102,7 +102,7 @@ class Goal < ActiveRecord::Base
       if v == 0
         ontrack << "<div id=\"noneyet\">None Yet</div>".html_safe
       elsif v == ideal[k]
-        ontrack << "<div id=\"offtrack\">On Track</div>".html_safe
+        ontrack << "<div id=\"ontrack\">On Track</div>".html_safe
       else
         ontrack << "<div id=\"offtrack\">Off Track</div>".html_safe
       end
