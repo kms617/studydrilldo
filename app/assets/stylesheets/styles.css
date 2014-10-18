@@ -419,8 +419,23 @@ input[type=password_confirmation] {
   position: relative;
 }
 
+.ongoing_container {
+  background-color: #FFFFFF
+  max-width: 900px;
+}
+#ongoing_table {
+  display: inline-block;
+  float: left;
+}
 #ongoing_pie {
-  max-width: 400px;
+  display: inline-block;
+  width: 400px;
+  position: relative;
+  margin-top: 10px 0 0 40%;
+}
+
+.highcharts-container {
+  margin: 0 auto;
 }
 
 th, td {

@@ -86,9 +86,9 @@ class Goal < ActiveRecord::Base
 
     ideal.each do |k, v|
       if v > actual[k]
-        advice << "You didn't #{k} enough."
+        advice << "Not enough #{k}ing"
       elsif v < actual[k]
-        advice << "You did too much #{k}ing."
+        advice << "Too much #{k}ing"
       else
         advice << "Just right."
       end

@@ -47,7 +47,7 @@
         <th>Method</th>
         <th>Ideal Time</th>
         <th>My Time</th>
-        <th>Recommendation</th>
+        <th>Status</th>
       </tr>
       <tr>
         <td>Study</td>
@@ -77,32 +77,36 @@
 
 <% else %>
 <div class="ongoing_container">
+ <div id="ongoing_table">
   <h3>study.drill.do assessment</h3>
   <table>
     <tr>
       <th>Method</th>
       <th>Ideal Time</th>
       <th>My Time</th>
+      <th>Status</th>
     </tr>
     <tr>
       <td>Study</td>
       <td><%= @best_allocation[:study] %> minutes </td>
       <td><%= @my_allocation[:study] %> minutes </td>
+      <td>Off Track</td>
     </tr>
     <tr>
       <td>Drill</td>
       <td><%= @best_allocation[:drill] %> minutes </td>
       <td><%= @my_allocation[:drill] %> minutes </td>
+      <td>On Track</td>
     </tr>
     <tr>
       <td>Do</td>
       <td><%= @best_allocation[:do] %> minutes </td>
       <td><%= @my_allocation[:do] %> minutes </td>
+      <td>On Track</td>
     </tr>
   </table>
-
-  <div class="pie_charts">
-    <div id="ongoing_pie"></div>
   </div>
+
+  <div id="ongoing_pie"></div>
 </div>
 <% end %>
