@@ -96,6 +96,20 @@ class Goal < ActiveRecord::Base
     advice
   end
 
+  def ontrack?(ideal, actual)
+    ontrack = []
+    actual.each do |k, v|
+      if v == 0
+        ontrack << "<div id=\"noneyet\">None Yet</div>".html_safe
+      elsif v == ideal[k]
+        ontrack << "<div id=\"offtrack\">On Track</div>".html_safe
+      else
+        ontrack << "<div id=\"offtrack\">Off Track</div>".html_safe
+      end
+    end
+    ontrack
+  end
+
   def editable_by?(user)
     self == user || user.admin?
   end

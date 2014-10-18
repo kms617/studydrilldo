@@ -34,6 +34,7 @@ class GoalsController < ApplicationController
     gon.actual_pie = @goal.actual_array
     gon.ongoing_pie = @goal.ongoing_array
     @advice = @goal.advice_calc(@best_allocation, @my_allocation)
+    @ontrack = @goal.ontrack?(@best_allocation, @my_allocation)
   end
 
   def edit

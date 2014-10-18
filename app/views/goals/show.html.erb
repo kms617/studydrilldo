@@ -90,19 +90,19 @@
       <td>Study</td>
       <td><%= @best_allocation[:study] %> minutes </td>
       <td><%= @my_allocation[:study] %> minutes </td>
-      <td>Off Track</td>
+      <td><%= @ontrack[0] %></td>
     </tr>
     <tr>
       <td>Drill</td>
       <td><%= @best_allocation[:drill] %> minutes </td>
       <td><%= @my_allocation[:drill] %> minutes </td>
-      <td>On Track</td>
+      <td><%= @ontrack[1] %></td>
     </tr>
     <tr>
       <td>Do</td>
       <td><%= @best_allocation[:do] %> minutes </td>
       <td><%= @my_allocation[:do] %> minutes </td>
-      <td>On Track</td>
+      <td><%= @ontrack[2] %></td>
     </tr>
   </table>
   </div>

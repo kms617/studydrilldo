@@ -232,7 +232,7 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .alert-box.warning {
-  background-color: #FD0085;
+  background-color: #00BA47;
   font-family: 'Lato', sans-serif;
 }
 
@@ -452,3 +452,25 @@ th {
   color: #FFFFFF;
   font-family: 'Lato', sans-serif;
 }
+
+#offtrack {
+  background-color: #F56122;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  padding: 2px;
+}
+
+#ontrack {
+  background-color: #00BA47;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  padding: 2px;
+}
+
+#noneyet {
+  font-family: 'Lato', sans-serif;
+  color: #9E8D82;
+  padding: 2px;
+}
+
+
