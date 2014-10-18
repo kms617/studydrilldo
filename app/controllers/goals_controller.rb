@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:edit, :update, :destroy]
 
   def index
-    @goals = Goal.where(secret: false).order(created_at: :desc)
+    @goals = Goal.where(secret: false).order(created_at: :desc).includes(:user)
   end
 
   def new

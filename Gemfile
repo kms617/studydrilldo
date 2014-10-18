@@ -29,6 +29,7 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "valid_attribute"
   gem "nyan-cat-formatter"
+  gem "rack-mini-profiler"
 end
 
 group :production do

@@ -1,4 +1,3 @@
-
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|
@@ -25,3 +24,17 @@ RSpec.configure do |config|
   Coveralls.wear!('rails')
 
 end
+
+
+def format_duration(duration)
+    minutes = (duration % 60)
+    hours = (duration / 60)
+
+    if hours > 0 && minutes != 0
+      "#{hours} h #{minutes} min"
+    elsif hours >0 && minutes == 0
+      "#{hours} h"
+    else
+      "#{minutes} min"
+    end
+  end

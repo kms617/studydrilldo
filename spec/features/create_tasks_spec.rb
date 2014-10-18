@@ -15,7 +15,7 @@ feature 'user submits a new step' do
     visit new_goal_task_path(task.goal)
 
     fill_in "Focus", with: task.focus
-    fill_in "Duration", with: task.duration
+    fill_in "task_duration", with: task.duration
     fill_in "task_action_url", with: task.action_url
     fill_in "Description", with: task.description
     choose 'task_completed_false'
@@ -37,7 +37,7 @@ feature 'user submits a new step' do
     visit new_goal_task_path(task.goal)
 
     fill_in "Focus", with: task.focus
-    fill_in "Duration", with: task.duration
+    fill_in "task_duration", with: task.duration
     fill_in "task_action_url", with: task.action_url
     fill_in "Description", with: task.description
     choose 'task_completed_false'
@@ -83,7 +83,7 @@ feature 'user submits a new step' do
                             programming as a natural career choice for savvy young women. Even the
                             trend-spotters at Cosmopolitan Magazine urged their fashionable female readership
                             to consider careers in programming."
-    fill_in "Duration", with: "twenty"
+    fill_in "task_duration", with: "twenty"
     choose 'task_completed_false'
     fill_in "Description", with: "In an article titled “The Computer Girls,”
                                   the magazine described the field as offering better job opportunities for women
@@ -109,7 +109,7 @@ feature 'user submits a new step' do
     visit task_path(task)
 
     expect(page).to have_content(task.focus)
-    expect(page).to have_content(task.duration)
+    expect(page).to have_content(format_duration(task.duration))
     expect(page).to have_content(task.description)
   end
 end
