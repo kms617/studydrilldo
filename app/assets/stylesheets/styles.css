@@ -30,8 +30,8 @@ body {
 
 .about-container ul, li {
   list-style: none;
-  padding: 10 10 10 10;
   margin: 0px;
+  line-height: 5px;
 }
 
 h1, h2 {
@@ -67,8 +67,9 @@ a:hover {
   font-size: 20px;
   list-style-type: none;
   display: inline-block;
-  padding-top: 10px;
+  padding: 10px 0 0 0;
   padding-left: 5px;
+  margin-left: 0;
 }
 
 .nav a {
@@ -82,11 +83,16 @@ a:hover {
   text-align: center;
   display: inline-block;
   padding: 5px;
-  color: rgb(66, 26, 0);
+  color: #421A00;
 }
 
 .logo:hover, .logo a:hover{
   background-color: #EA9758;
+}
+
+.goals_index, ul, li {
+  padding-bottom: 10px;
+  margin-left: 10px;
 }
 
 input[type="text"], textarea {
@@ -226,7 +232,7 @@ button:hover, .button:hover, button:active, .button:hover {
 }
 
 .alert-box.warning {
-  background-color: #FD0085;
+  background-color: #00BA47;
   font-family: 'Lato', sans-serif;
 }
 
@@ -236,12 +242,12 @@ button:hover, .button:hover, button:active, .button:hover {
   margin: 0 auto;
 }
 
-.user-thumb img {
-  vertical-align: text-top;
+#user-thumb img {
+  vertical-align: text-bottom;
   float:left;
   margin-right: 10px;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 30px;
+  max-height: 30px;
 }
 
 .user_info {
@@ -271,26 +277,29 @@ button:hover, .button:hover, button:active, .button:hover {
   background-color: #FFFFFF;
 }
 
-.about-box {
-  display: center;
-}
-
-.about_box1, a {
-  text-align: center;
-  padding-left: 10px;
-}
-
-.about_box2, a {
-  text-align: center;
-  float: center;
-  margin-left: 0 auto;
-}
-
 .about_box, img {
   width: 150;
   height: 150px;
   border: 3px solid #FFFFFF;
   border-radius: 15%;
+}
+
+#about_box1, a{
+  text-align: center;
+}
+
+#about_box2, a{
+  text-align: center;
+}
+
+#about_box1 {
+  display: inline-block;
+  margin-left: 28%;
+}
+
+#about_box2 {
+  display: inline-block;
+  margin-left: 5%;
 }
 
 input[type=text],
@@ -354,7 +363,7 @@ input {
 input[type=password],
 input[type=email],
 input[type=password_confirmation] {
-    width: 90%;
+    width: 70%;
     margin-top: 5px;
     margin-bottom: 10px;
     margin-left: 5px;
@@ -362,12 +371,106 @@ input[type=password_confirmation] {
     display: inline-block;
 }
 
-.box1 {
-  float: left;
+#goal_duration {
+  max-width: 50px;
+}
+
+#task_duration {
+  max-width: 50px;
+}
+
+#task_action {
+  max-width: 200 px;
+}
+
+#task_action_url {
+  max-width: 200 px;
 }
 
 .box2 {
+  display: inline-block;
+}
+
+.allocation {
   padding: 10px;
   line-height: 30px;
-  margin-left: 700px;
+  margin-left: 500 px;
+  display: inline-block;
 }
+
+.pie_charts {
+  max-width: 900px;
+  margin-top: 75px;
+}
+
+#ideal_pie {
+  max-width: 400px;
+}
+
+#highcharts-0 {
+  max-width: 400px;
+  float: left;
+  position: relative;
+}
+
+#actual_pie {
+  max-width: 400px;
+  margin-left: 450px;
+  position: relative;
+}
+
+.ongoing_container {
+  background-color: #FFFFFF;
+  max-width: 900px;
+}
+#ongoing_table {
+  display: inline-block;
+  float: left;
+}
+#ongoing_pie {
+  display: inline-block;
+  width: 400px;
+  position: relative;
+  margin-top: 10px 0 0 40%;
+}
+
+.highcharts-container {
+  margin: 0 auto;
+}
+
+th, td {
+  text-align: left;
+  border: 1px solid #421A00;
+}
+
+td {
+  padding: 5px;
+}
+
+th {
+  background-color: #EA9758;
+  color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+}
+
+#offtrack {
+  background-color: #F56122;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  padding: 2px;
+}
+
+#ontrack {
+  background-color: #00BA47;
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  padding: 2px;
+}
+
+#noneyet {
+  font-family: 'Lato', sans-serif;
+  color: #9E8D82;
+  padding: 2px;
+}
+
+

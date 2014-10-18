@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:edit, :update, :destroy]
 
   def index
-    @goals = Goal.where(secret: false).order(created_at: :desc)
+    @goals = Goal.where(secret: false).order(created_at: :desc).includes(:user)
   end
 
   def new
@@ -28,6 +28,13 @@ class GoalsController < ApplicationController
     @user_image = @goal.user.profile_photo.thumb
     @user = @goal.user
     @task = Task.new
+    @my_allocation = @goal.actual_allocation
+    @best_allocation = @goal.ideal_allocation
+    gon.ideal_pie = @goal.ideal_array
+    gon.actual_pie = @goal.actual_array
+    gon.ongoing_pie = @goal.ongoing_array
+    @advice = @goal.advice_calc(@best_allocation, @my_allocation)
+    @ontrack = @goal.ontrack?(@best_allocation, @my_allocation)
   end
 
   def edit
@@ -69,13 +76,5 @@ class GoalsController < ApplicationController
       raise ActionController::RoutingError.new('Not Found')
     end
   end
-
-  # def done(goal)
-  #   if !goal.completed
-  #     "Ongoing"
-  #   else
-  #     "Completed"
-  #   end
-  # end
 
 end

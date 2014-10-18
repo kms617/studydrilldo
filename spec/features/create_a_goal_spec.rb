@@ -17,13 +17,13 @@ feature 'user submits a new goal' do
 
     fill_in "Goal", with: goal.name
     choose 'goal_completed_false'
-    fill_in "Duration", with: goal.duration
+    fill_in "goal_duration", with: goal.duration
     fill_in "Objective", with: goal.objective
     click_button "Create Goal"
 
     expect(page).to have_content("Your goal has successfully been set!")
     expect(page).to have_content(goal.name)
-    expect(page).to have_content(goal.duration)
+    expect(page).to have_content(format_duration(goal.duration))
     expect(page).to have_content(goal.objective)
 
   end
@@ -56,13 +56,13 @@ feature 'user submits a new goal' do
     fill_in "Goal", with: goal.name
     choose 'goal_completed_false'
     check 'goal_secret'
-    fill_in "Duration", with: goal.duration
+    fill_in "goal_duration", with: goal.duration
     fill_in "Objective", with: goal.objective
     click_button "Create Goal"
 
     expect(page).to have_content("Your goal has successfully been set!")
     expect(page).to have_content(goal.name)
-    expect(page).to have_content(goal.duration)
+    expect(page).to have_content(format_duration(goal.duration))
     expect(page).to have_content(goal.objective)
     expect(page).to have_content("Private Goal")
 
@@ -81,7 +81,7 @@ feature 'user submits a new goal' do
                         programming as a natural career choice for savvy young women. Even the
                         trend-spotters at Cosmopolitan Magazine urged their fashionable female readership
                         to consider careers in programming."
-    fill_in "Duration", with: "twenty"
+    fill_in "goal_duration", with: "twenty"
     choose 'goal_completed_false'
     fill_in "Objective", with: "In an article titled “The Computer Girls,”
                                 the magazine described the field as offering better job opportunities for women

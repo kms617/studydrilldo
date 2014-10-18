@@ -30,4 +30,8 @@ class Task < ActiveRecord::Base
       where(user: user).find(id)
     end
   end
+
+  def editable_by?(user)
+    self == user || user.admin?
+  end
 end

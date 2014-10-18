@@ -15,7 +15,7 @@ feature 'user views her goals' do
     visit goal_path(goal)
 
     expect(page).to have_content(goal.name)
-    expect(page).to have_content(goal.duration)
+    expect(page).to have_content(format_duration(goal.duration))
     expect(page).to have_content(goal.objective)
     expect(page).to have_content("Completed")
 

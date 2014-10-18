@@ -19,7 +19,7 @@ feature 'user updates a goal' do
 
     expect(page).to have_content("Goal Updated")
     expect(page).to have_content(@goal.name)
-    expect(page).to have_content(@goal.duration)
+    expect(page).to have_content(format_duration(@goal.duration))
     expect(page).to have_content("Learn lots of Ruby")
   end
 
@@ -29,7 +29,7 @@ feature 'user updates a goal' do
     visit edit_goal_path(@goal)
 
     fill_in "Goal", with: ""
-    fill_in "Duration", with: ""
+    fill_in "goal_duration", with: ""
     fill_in "Objective", with: ""
     click_button "Update Goal"
 

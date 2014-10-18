@@ -24,7 +24,7 @@
 
 <p>
   <%= f.label :action %>
-  <%= f.text_field :action %> or <br>
+  <%= f.text_field :action %><br>
   <%= f.label :action_url %>
   <%= f.text_field :action_url %>
 </p>
@@ -36,9 +36,8 @@
 </p>
 
 <p>
-  <div class="duration-form"
-  <span><%= f.label :duration %>
-  <%= f.text_field :duration %> minutes</span></div>
+  <%= f.label :duration_in_minutes %>
+  <%= f.text_field :duration %>
 </p>
 
 <p>
