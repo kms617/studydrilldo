@@ -111,6 +111,6 @@ class Goal < ActiveRecord::Base
   end
 
   def editable_by?(user)
-    self == user || user.admin?
+    self.user == user || user.admin?
   end
 end
