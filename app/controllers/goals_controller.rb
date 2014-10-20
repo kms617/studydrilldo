@@ -26,8 +26,6 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.includes(:user, :tasks).find(params[:id])
     @user_image = @goal.user.profile_photo.thumb
-    @user = @goal.user
-    @task = Task.new
     @my_allocation = @goal.actual_allocation
     @best_allocation = @goal.ideal_allocation
     gon.ideal_pie = @goal.ideal_array
