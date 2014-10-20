@@ -86,11 +86,11 @@ class Goal < ActiveRecord::Base
 
     ideal.each do |k, v|
       if v > actual[k]
-        advice << "Not enough #{k}ing"
+        advice << "<div id=\"noneyet\">Not Enough</div>".html_safe
       elsif v < actual[k]
-        advice << "Too much #{k}ing"
+        advice << "<div id=\"offtrack\">Too much</div>".html_safe
       else
-        advice << "Just right."
+        advice << "<div id=\"ontrack\">Just Right</div>".html_safe
       end
     end
     advice
