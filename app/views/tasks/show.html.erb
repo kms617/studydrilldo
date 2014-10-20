@@ -6,7 +6,7 @@
   <% end %>
 <ul>
   <li>
-    <strong>Action: </strong><% if !@task.action == "" %><%= @task.action %><% else %><%= @task.action_url %><% end %>
+    <strong>Action: </strong><% if @task.action %><%= @task.action %><% else %><%= @task.action_url %><% end %>
   </li>
   <li>
     <strong>Goal: </strong><%= @task.goal.name %>
